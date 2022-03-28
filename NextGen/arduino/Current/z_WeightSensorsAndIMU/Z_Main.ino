@@ -59,7 +59,11 @@ void loop()
   middle_right_reading=middle_right_median(middle_right_reading);
   bottom_left_reading =bottom_left_median (bottom_left_reading );
   bottom_right_reading=bottom_right_median(bottom_right_reading);
-  
+
+  while(not Serial.available()) {}
+  do{Serial.read();}while(Serial.available());
+
+  Serial.print(">,");
                                                        //imu_0.print();Serial.print(',');
   Serial.print(top_left_reading    );Serial.print(',');//imu_1.print();Serial.print(',');
   Serial.print(top_right_reading   );Serial.print(',');//imu_2.print();Serial.print(',');
@@ -67,6 +71,9 @@ void loop()
   Serial.print(middle_right_reading);Serial.print(',');//imu_4.print();Serial.print(',');
   Serial.print(bottom_left_reading );Serial.print(',');//imu_5.print();Serial.print(',');
   Serial.print(bottom_right_reading);Serial.print(',');imu_6.print();//Serial.print(',');
+
+  Serial.print(",<");
+
 
   Serial.println();//There will be one trailing comma
 }
