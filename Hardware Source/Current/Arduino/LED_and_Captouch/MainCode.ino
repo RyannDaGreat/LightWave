@@ -4,6 +4,8 @@ void setup()
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
   Serial.begin(9600);
+  setupSerialDisplay();
+  updateSerialDisplay();
 }
 int todoNum;
 void loop()
@@ -25,6 +27,10 @@ void loop()
       if (todoNum == 129)
       {
         setNumLedPerNote(n);
+      }
+      if (todoNum == 130)
+      {
+        setCurrentNoteShift(n);
       }
       todoNum = 0;
     }
