@@ -15,10 +15,10 @@ void setup()
   //loadcell.begin(LOADCELL_DOUT_PIN (aka dt), LOADCELL_SCK_PIN (aka sck));
   top_left.    begin(11,10);
   top_right.   begin(12,13);
-  middle_left. begin( 8, 9);
-  middle_right.begin( 6, 7);
-  bottom_left. begin( 4, 5);
-  bottom_right.begin( 2, 3);
+  middle_left. begin( 4, 5);
+  middle_right.begin( 2, 3);
+  bottom_left. begin( 8, 9);
+  bottom_right.begin( 6, 7);
 }
 
 RollingElevenMedian top_left_median    ;
