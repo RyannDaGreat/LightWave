@@ -180,5 +180,18 @@ struct ImuDelayLine
     Serial.print(gyro_y ,4);Serial.print(',');
     Serial.print(gyro_z ,4);
   }
-};
 
+  String printToString()
+  {
+    //NOTE: String(val, 4);  // turn float to string with 4 decimal places
+    String out="";
+    out+=String(accel_x,4);out+=",";
+    out+=String(accel_y,4);out+=",";
+    out+=String(accel_z,4);out+=",";
+
+    out+=String(gyro_x ,4);out+=",";
+    out+=String(gyro_y ,4);out+=",";
+    out+=String(gyro_z ,4);
+    return out;
+  }
+};
