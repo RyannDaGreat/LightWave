@@ -53,12 +53,12 @@ void loop()
   bottom_left_reading  = bottom_left .read();//imu_5.update();
   bottom_right_reading = bottom_right.read();imu_6.update();
 
-  top_left_reading    =top_left_median    (top_left_reading    );
-  top_right_reading   =top_right_median   (top_right_reading   );
-  middle_left_reading =middle_left_median (middle_left_reading );
-  middle_right_reading=middle_right_median(middle_right_reading);
-  bottom_left_reading =bottom_left_median (bottom_left_reading );
-  bottom_right_reading=bottom_right_median(bottom_right_reading);
+//  top_left_reading    =top_left_median    (top_left_reading    );
+//  top_right_reading   =top_right_median   (top_right_reading   );
+//  middle_left_reading =middle_left_median (middle_left_reading );
+//  middle_right_reading=middle_right_median(middle_right_reading);
+//  bottom_left_reading =bottom_left_median (bottom_left_reading );
+//  bottom_right_reading=bottom_right_median(bottom_right_reading);
 
   String output = ">,";
   output += top_left_reading    ; output += ",";
