@@ -1,0 +1,735 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="mix/mix 3" uuid="8be16f2156012a4a8974804178cece51555f272b" name="mix_2" x="882" y="266">
+      <params>
+         <frac32.u.map name="gain1" value="47.5"/>
+         <frac32.u.map name="gain2" value="32.0"/>
+         <frac32.u.map name="gain3" value="32.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <patcher type="patch/patcher" uuid="3025e8f4-5e7d-4923-a557-4f2985c5f8a7" name="flute" x="238" y="294">
+      <params>
+         <frac32.u.map name="mix_2:gain1" value="34.5"/>
+         <frac32.u.map name="mix_2:gain2" value="6.0"/>
+      </params>
+      <attribs>
+         <combo attributeName="poly" selection="1"/>
+         <combo attributeName="midichannel" selection="inherit"/>
+         <combo attributeName="mididevice" selection="omni"/>
+         <combo attributeName="midiport" selection="omni"/>
+      </attribs>
+      <subpatch appVersion="1.0.12">
+         <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend Range Disp" x="0" y="28">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Rang Numerator" x="0" y="56">
+            <params>
+               <int32 name="value" value="48"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="rbrt/math/div iif" uuid="fe89a2c7-e258-4e26-9a5f-172ad2538a2a" name="Bend Range" x="126" y="84">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="kfilter/bp svf" uuid="c053574885bbad6f3434527ab085f38db16dedcd" name="bp_6" x="2030" y="84">
+            <params>
+               <frac32.s.map name="pitch" value="64.0"/>
+               <frac32.u.map name="reso" value="38.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Range Denominator" x="0" y="126">
+            <params>
+               <int32 name="value" value="1"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="kfilter/bp svf" uuid="c053574885bbad6f3434527ab085f38db16dedcd" name="bp_5" x="1288" y="126">
+            <params>
+               <frac32.s.map name="pitch" value="47.0"/>
+               <frac32.u.map name="reso" value="40.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="2282" y="126">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="mix/mix 2" uuid="682ea5496ded046d981e26b720a6e7f8eca97541" name="mix_4" x="2380" y="140">
+            <params>
+               <frac32.u.map name="gain1" value="10.5"/>
+               <frac32.u.map name="gain2" value="0.8499999046325684"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend In Disp" x="154" y="154">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Bend" x="266" y="154">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="Vibrato Amplitude" x="854" y="154">
+            <params>
+               <frac32.u.map name="amp" value="0.2999997138977051"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="1064" y="154">
+            <params>
+               <frac32.u.map name="value" value="35.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="rand/pink" uuid="d51c4125e968e7c5fb2d54b71478ac2a3d73e935" name="pink_1" x="1288" y="168">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Emphasis" x="1162" y="196">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="midi/in/bend" uuid="7bd8cace52a8c26ed61d80f65e238408d5d621f4" name="bend_1" x="1596" y="210">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="filter/bp svf" uuid="451629d3f559049e7f516d5014f3d5fa818827c7" name="bp_4" x="2086" y="210">
+            <params>
+               <frac32.s.map name="pitch" value="0.0"/>
+               <frac32.u.map name="reso" value="0.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Vibrato" x="952" y="238">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="midi/in/bend" uuid="7bd8cace52a8c26ed61d80f65e238408d5d621f4" name="Bend In" x="42" y="252">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="cpwitz/lfo/tri" uuid="cpwitz-lfo-tri" name="Vibrato LFO" x="854" y="252">
+            <params>
+               <frac32.s.map name="pitch" value="2.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="drj/math/sum3" uuid="93cb11244907aed86ae7d7f2274d118a23d46692" name="Total Pitch" x="336" y="294">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="jt/filter/vcf4pole" uuid="f926d4ad-3053-4a66-be48-6db4447a260a" name="vcf4pole_1" x="2422" y="322">
+            <params>
+               <frac32.s.map name="pitch" value="-34.0"/>
+               <frac32.u.map name="reso" value="0.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="drj/lfo/multi_wave" uuid="dd0f1c30c0026545c19a5dc3b26a29daa1a321a3b" name="multi_wave_1" x="2604" y="322">
+            <params>
+               <frac32.s.map name="pitch" value="0.0"/>
+               <frac32.u.map name="pw" value="0.0"/>
+               <frac32.s.map name="amp" value="0.09999990463256836"/>
+               <bool32.tgl name="unipolar" value="0"/>
+               <int32 name="wave" value="1"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="phi/ctrl/i bp" uuid="e5bf3953ead204874695afgd85c0et3a027r74f1" name="Extra Pitch" x="56" y="336">
+            <params>
+               <int32 name="c" value="24"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Vibratoed Pitch" x="1162" y="336">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="mix/mix 2" uuid="682ea5496ded046d981e26b720a6e7f8eca97541" name="mix_3" x="2198" y="336">
+            <params>
+               <frac32.u.map name="gain1" value="2.0"/>
+               <frac32.u.map name="gain2" MidiCC="1" value="35.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="osc/square" uuid="aa9592566d3673fe64dcaede132e9ebd45d2202f" name="square_1" x="2282" y="336">
+            <params>
+               <frac32.s.map name="pitch" value="0.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="noise/gaussian" uuid="a0f2cae6eafbfa58e1f1cb28e369824c54486f79" name="gaussian_1" x="1288" y="350">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="gain_3" x="854" y="364">
+            <params>
+               <frac32.u.map name="amp" value="17.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="filter/bp svf m" uuid="90abfee2793172fc193ec82288a454727134cb31" name="bp_1" x="2058" y="364">
+            <params>
+               <frac32.s.map name="pitch" value="12.0"/>
+               <frac32.u.map name="reso" value="55.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Volume" x="1008" y="392">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="2534" y="392">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="midi/in/keyb zone" uuid="e7413176a91acc060036fd7f68fda24bbee265d3" name="MIDI Notes" x="28" y="420">
+            <params/>
+            <attribs>
+               <spinner attributeName="startNote" value="0"/>
+               <spinner attributeName="endNote" value="127"/>
+            </attribs>
+         </obj>
+         <patchobj type="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0" name="1 Sample Delay" x="714" y="434">
+            <params/>
+            <attribs/>
+            <object id="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0">
+               <inlets>
+                  <bool32 name="i1"/>
+               </inlets>
+               <outlets>
+                  <bool32 name="o1"/>
+               </outlets>
+               <displays/>
+               <params/>
+               <attribs/>
+               <includes/>
+               <code.declaration><![CDATA[bool mem;]]></code.declaration>
+               <code.krate><![CDATA[outlet_o1=mem;
+mem=inlet_i1;]]></code.krate>
+            </object>
+         </patchobj>
+         <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="Gate" x="350" y="490">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="2338" y="490">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_2" x="2492" y="490">
+            <params>
+               <frac32.u.map name="gain1" onParent="true" value="30.5"/>
+               <frac32.u.map name="gain2" onParent="true" value="11.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="filter/bp svf m" uuid="90abfee2793172fc193ec82288a454727134cb31" name="bp_2" x="2058" y="504">
+            <params>
+               <frac32.s.map name="pitch" value="18.0"/>
+               <frac32.u.map name="reso" value="46.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="mix/mix 3" uuid="8be16f2156012a4a8974804178cece51555f272b" name="mix_1" x="2226" y="504">
+            <params>
+               <frac32.u.map name="gain1" value="15.5"/>
+               <frac32.u.map name="gain2" value="6.5"/>
+               <frac32.u.map name="gain3" value="5.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="Gate Envelope" x="868" y="518">
+            <params>
+               <frac32.s.map name="a" value="20.0"/>
+               <frac32.s.map name="d" value="50.0"/>
+               <frac32.u.map name="s" value="45.0"/>
+               <frac32.s.map name="r" value="34.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="outlet_1" x="2324" y="532">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="Gate Override" x="56" y="560">
+            <params>
+               <bool32.mom name="b" value="0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="env/adsr" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="adsr_1" x="2310" y="560">
+            <params>
+               <frac32.s.map name="a" value="-64.0"/>
+               <frac32.s.map name="d" value="0.0"/>
+               <frac32.u.map name="s" value="11.5"/>
+               <frac32.s.map name="r" value="-18.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="*_1" x="2422" y="560">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/glide" uuid="cfa0324c7cc8ebfd6e03c6b92f41115e3172d0d9" name="Legato" x="952" y="574">
+            <params>
+               <frac32.u.map name="time" value="33.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="env/adsr" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="adsr_2" x="2590" y="574">
+            <params>
+               <frac32.s.map name="a" value="-12.0"/>
+               <frac32.s.map name="d" value="-64.0"/>
+               <frac32.u.map name="s" value="49.0"/>
+               <frac32.s.map name="r" value="-44.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Gated Pressure" x="490" y="602">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/smooth2" uuid="9ba3ddec912512e6b63211080e89cb25b6d84834" name="Smooth Pressure" x="602" y="602">
+            <params>
+               <frac32.u.map name="risetime" value="0.0"/>
+               <frac32.u.map name="falltime" value="40.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="Extra Pressure" x="56" y="630">
+            <params>
+               <frac32.s.map name="value" value="0.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="filter/bp svf m" uuid="90abfee2793172fc193ec82288a454727134cb31" name="bp_3" x="2058" y="644">
+            <params>
+               <frac32.s.map name="pitch" value="36.0"/>
+               <frac32.u.map name="reso" value="24.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Total Pressure" x="154" y="686">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/max" uuid="12440f9565ca6f036f087665b49fb708062e90d0" name="Non Negative" x="266" y="686">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Gained Pressure" x="378" y="686">
+            <params/>
+            <attribs/>
+         </obj>
+         <nets>
+            <net>
+               <source obj="gaussian_1" outlet="wave"/>
+               <dest obj="bp_1" inlet="in"/>
+               <dest obj="bp_2" inlet="in"/>
+               <dest obj="bp_3" inlet="in"/>
+               <dest obj="bp_4" inlet="in"/>
+            </net>
+            <net>
+               <source obj="Vibratoed Pitch" outlet="out"/>
+               <dest obj="bp_3" inlet="pitch"/>
+               <dest obj="bp_2" inlet="pitch"/>
+               <dest obj="bp_1" inlet="pitch"/>
+               <dest obj="mix_3" inlet="bus_in"/>
+               <dest obj="mix_4" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="bp_1" outlet="out"/>
+               <dest obj="mix_1" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="bp_2" outlet="out"/>
+               <dest obj="mix_1" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="bp_3" outlet="out"/>
+               <dest obj="mix_1" inlet="in3"/>
+            </net>
+            <net>
+               <source obj="mix_1" outlet="out"/>
+               <dest obj="vca_1" inlet="a"/>
+            </net>
+            <net>
+               <source obj="adsr_1" outlet="env"/>
+               <dest obj="*_1" inlet="a"/>
+            </net>
+            <net>
+               <source obj="vca_1" outlet="o"/>
+               <dest obj="mix_2" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="square_1" outlet="wave"/>
+               <dest obj="vcf4pole_1" inlet="in"/>
+            </net>
+            <net>
+               <source obj="mix_3" outlet="out"/>
+               <dest obj="square_1" inlet="pitch"/>
+            </net>
+            <net>
+               <source obj="multi_wave_1" outlet="out"/>
+               <dest obj="mix_3" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="vcf4pole_1" outlet="out"/>
+               <dest obj="vca_2" inlet="a"/>
+            </net>
+            <net>
+               <source obj="vca_2" outlet="o"/>
+               <dest obj="mix_2" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="adsr_2" outlet="env"/>
+               <dest obj="vca_2" inlet="v"/>
+            </net>
+            <net>
+               <source obj="*_1" outlet="result"/>
+               <dest obj="vca_1" inlet="v"/>
+            </net>
+            <net>
+               <source obj="mix_4" outlet="out"/>
+               <dest obj="vcf4pole_1" inlet="pitch"/>
+            </net>
+            <net>
+               <source obj="pink_1" outlet="out"/>
+               <dest obj="bp_5" inlet="in"/>
+            </net>
+            <net>
+               <source obj="bp_5" outlet="out"/>
+               <dest obj="+_1" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="bp_6" outlet="out"/>
+               <dest obj="+_1" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="+_1" outlet="out"/>
+               <dest obj="mix_4" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="mix_2" outlet="out"/>
+               <dest obj="outlet_1" inlet="outlet"/>
+            </net>
+            <net>
+               <source obj="1 Sample Delay" outlet="o1"/>
+               <dest obj="Legato" inlet="en"/>
+            </net>
+            <net>
+               <source obj="Legato" outlet="out"/>
+               <dest obj="Vibratoed Pitch" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="Vibrato Amplitude" outlet="out"/>
+               <dest obj="Vibrato" inlet="a"/>
+            </net>
+            <net>
+               <source obj="gain_3" outlet="out"/>
+               <dest obj="Volume" inlet="in1"/>
+               <dest obj="Emphasis" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="Vibrato LFO" outlet="wave"/>
+               <dest obj="Vibrato" inlet="b"/>
+            </net>
+            <net>
+               <source obj="Vibrato" outlet="result"/>
+               <dest obj="Vibratoed Pitch" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="Gate Envelope" outlet="env"/>
+               <dest obj="Volume" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="dial_1" outlet="out"/>
+               <dest obj="Emphasis" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="Smooth Pressure" outlet="out"/>
+               <dest obj="Vibrato Amplitude" inlet="in"/>
+               <dest obj="gain_3" inlet="in"/>
+            </net>
+            <net>
+               <source obj="Gate" outlet="o"/>
+               <dest obj="Gate Envelope" inlet="gate"/>
+               <dest obj="1 Sample Delay" inlet="i1"/>
+               <dest obj="Gated Pressure" inlet="a"/>
+               <dest obj="adsr_2" inlet="gate"/>
+            </net>
+            <net>
+               <source obj="MIDI Notes" outlet="gate"/>
+               <dest obj="Gate" inlet="i1"/>
+            </net>
+            <net>
+               <source obj="Bend In" outlet="bend"/>
+               <dest obj="Bend In Disp" inlet="in"/>
+               <dest obj="Bend" inlet="b"/>
+            </net>
+            <net>
+               <source obj="Bend" outlet="result"/>
+               <dest obj="Total Pitch" inlet="in1"/>
+               <dest obj="mix_3" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="MIDI Notes" outlet="note"/>
+               <dest obj="Total Pitch" inlet="in3"/>
+            </net>
+            <net>
+               <source obj="Gate Override" outlet="o"/>
+               <dest obj="Gate" inlet="i2"/>
+            </net>
+            <net>
+               <source obj="Total Pitch" outlet="out"/>
+               <dest obj="Legato" inlet="in"/>
+            </net>
+            <net>
+               <source obj="Total Pressure" outlet="out"/>
+               <dest obj="Non Negative" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="Extra Pressure" outlet="out"/>
+               <dest obj="Total Pressure" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="Non Negative" outlet="out"/>
+               <dest obj="Gained Pressure" inlet="a"/>
+            </net>
+            <net>
+               <source obj="Bend Rang Numerator" outlet="out"/>
+               <dest obj="Bend Range" inlet="a"/>
+            </net>
+            <net>
+               <source obj="Bend Range Denominator" outlet="out"/>
+               <dest obj="Bend Range" inlet="b"/>
+            </net>
+            <net>
+               <source obj="Bend Range" outlet="float"/>
+               <dest obj="Bend" inlet="a"/>
+               <dest obj="Bend Range Disp" inlet="in"/>
+            </net>
+            <net>
+               <source obj="Gained Pressure" outlet="result"/>
+               <dest obj="Gated Pressure" inlet="b"/>
+            </net>
+            <net>
+               <source obj="Gated Pressure" outlet="result"/>
+               <dest obj="Smooth Pressure" inlet="in"/>
+               <dest obj="mix_4" inlet="bus_in"/>
+            </net>
+            <net>
+               <source obj="Extra Pitch" outlet="out"/>
+               <dest obj="Total Pitch" inlet="in2"/>
+            </net>
+         </nets>
+         <settings>
+            <subpatchmode>polyphonic</subpatchmode>
+            <MidiChannel>1</MidiChannel>
+            <HasMidiChannelSelector>true</HasMidiChannelSelector>
+            <NPresets>8</NPresets>
+            <NPresetEntries>32</NPresetEntries>
+            <NModulationSources>8</NModulationSources>
+            <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+         </settings>
+         <notes><![CDATA[]]></notes>
+         <windowPos>
+            <x>0</x>
+            <y>23</y>
+            <width>1440</width>
+            <height>877</height>
+         </windowPos>
+      </subpatch>
+   </patcher>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1218" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <patcher type="patch/patcher" uuid="47b2ff1b-2c25-4512-b9d5-7d794fe36138" name="shortverb_1" x="574" y="392">
+      <params/>
+      <attribs/>
+      <subpatch appVersion="1.0.12">
+         <obj type="filter/fdbkcomb" uuid="b252513db2f8cc9a8964bad2a8eb7922be08690f" name="fdbkcomb_2" x="812" y="98">
+            <params>
+               <frac32.s.map name="a" value="-54.0"/>
+               <frac32.s.map name="b" value="51.299999713897705"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="1601"/>
+            </attribs>
+         </obj>
+         <obj type="filter/fdbkcomb" uuid="b252513db2f8cc9a8964bad2a8eb7922be08690f" name="fdbkcomb_1" x="812" y="294">
+            <params>
+               <frac32.s.map name="a" value="-53.0"/>
+               <frac32.s.map name="b" value="49.5"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="1687"/>
+            </attribs>
+         </obj>
+         <obj type="patch/inlet a" uuid="b577fe41e0a6bc7b5502ce33cb8a3129e2e28ee5" name="inlet_1" x="168" y="364">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_1" x="280" y="364">
+            <params>
+               <frac32.s.map name="g" value="12.0"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="281"/>
+            </attribs>
+         </obj>
+         <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_2" x="406" y="364">
+            <params>
+               <frac32.s.map name="g" value="4.0"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="113"/>
+            </attribs>
+         </obj>
+         <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_3" x="546" y="364">
+            <params>
+               <frac32.s.map name="g" value="8.0"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="37"/>
+            </attribs>
+         </obj>
+         <obj type="mix/mix 4" uuid="e6f9a0cc7aadc1b89516143cf1ccb79b3538d05a" name="mix_1" x="1008" y="378">
+            <params>
+               <frac32.u.map name="gain1" value="45.5"/>
+               <frac32.u.map name="gain2" value="55.5"/>
+               <frac32.u.map name="gain3" value="55.0"/>
+               <frac32.u.map name="gain4" value="51.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="1120" y="378">
+            <params>
+               <frac32.u.map name="amp" value="22.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="outlet_1" x="1274" y="392">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="filter/fdbkcomb" uuid="b252513db2f8cc9a8964bad2a8eb7922be08690f" name="fdbkcomb_3" x="812" y="476">
+            <params>
+               <frac32.s.map name="a" value="51.0"/>
+               <frac32.s.map name="b" value="48.09999990463257"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="2053"/>
+            </attribs>
+         </obj>
+         <obj type="filter/fdbkcomb" uuid="b252513db2f8cc9a8964bad2a8eb7922be08690f" name="fdbkcomb_4" x="812" y="630">
+            <params>
+               <frac32.s.map name="a" value="-53.0"/>
+               <frac32.s.map name="b" value="46.89999961853027"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="2251"/>
+            </attribs>
+         </obj>
+         <nets>
+            <net>
+               <source obj="*c_1" outlet="out"/>
+               <dest obj="outlet_1" inlet="outlet"/>
+            </net>
+            <net>
+               <source obj="mix_1" outlet="out"/>
+               <dest obj="*c_1" inlet="in"/>
+            </net>
+            <net>
+               <source obj="allpass_1" outlet="out"/>
+               <dest obj="allpass_2" inlet="in"/>
+            </net>
+            <net>
+               <source obj="allpass_2" outlet="out"/>
+               <dest obj="allpass_3" inlet="in"/>
+            </net>
+            <net>
+               <source obj="allpass_3" outlet="out"/>
+               <dest obj="fdbkcomb_1" inlet="in"/>
+               <dest obj="fdbkcomb_2" inlet="in"/>
+               <dest obj="fdbkcomb_3" inlet="in"/>
+               <dest obj="fdbkcomb_4" inlet="in"/>
+            </net>
+            <net>
+               <source obj="fdbkcomb_4" outlet="out"/>
+               <dest obj="mix_1" inlet="in4"/>
+            </net>
+            <net>
+               <source obj="fdbkcomb_3" outlet="out"/>
+               <dest obj="mix_1" inlet="in3"/>
+            </net>
+            <net>
+               <source obj="fdbkcomb_2" outlet="out"/>
+               <dest obj="mix_1" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="fdbkcomb_1" outlet="out"/>
+               <dest obj="mix_1" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="inlet_1" outlet="inlet"/>
+               <dest obj="allpass_1" inlet="in"/>
+            </net>
+         </nets>
+         <settings>
+            <subpatchmode>no</subpatchmode>
+         </settings>
+         <notes><![CDATA[]]></notes>
+         <windowPos>
+            <x>0</x>
+            <y>0</y>
+            <width>1510</width>
+            <height>1087</height>
+         </windowPos>
+      </subpatch>
+   </patcher>
+   <obj type="stomps/delay" uuid="d3eb6554-688a-44f8-99f9-812ac274a5dc" name="obj_1" x="574" y="504">
+      <params>
+         <bool32.tgl name="on" value="1"/>
+         <frac32.u.map name="fdbk" value="20.5"/>
+         <frac32.u.map name="time" value="5.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="flute" outlet="outlet_1"/>
+         <dest obj="obj_1" inlet="in"/>
+         <dest obj="mix_2" inlet="in1"/>
+         <dest obj="shortverb_1" inlet="inlet_1"/>
+      </net>
+      <net>
+         <source obj="shortverb_1" outlet="outlet_1"/>
+         <dest obj="mix_2" inlet="in3"/>
+      </net>
+      <net>
+         <source obj="obj_1" outlet="out"/>
+         <dest obj="mix_2" inlet="in2"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="out_1" inlet="right"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>0</x>
+      <y>23</y>
+      <width>1440</width>
+      <height>877</height>
+   </windowPos>
+</patch-1.0>
