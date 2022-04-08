@@ -113,11 +113,15 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="controller/cycle buttons" uuid="692e0b97-3812-432f-b052-4d17ba7d2380" name="obj_1" x="182" y="70">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="*_3" x="714" y="238">
       <params/>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="3447631e-9df5-4c93-a256-2e6f83610a19" name="Reverb" x="3038" y="252">
+   <patcher type="patch/patcher" uuid="1976012f-3576-4324-9469-5e3deaedb988" name="Reverb" x="3038" y="252">
       <params/>
       <attribs/>
       <subpatch appVersion="1.0.12">
@@ -987,8 +991,8 @@ mem=inlet_i1;]]></code.krate>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>0</x>
-      <y>23</y>
+      <x>454</x>
+      <y>228</y>
       <width>1440</width>
       <height>877</height>
    </windowPos>

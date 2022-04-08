@@ -107,16 +107,6 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="mix/mix 1" uuid="26fb1fe4ed25d8bc2ac4a3f91ab6b80ed6d9d4fa" name="mix_6" x="224" y="154">
-      <params>
-         <frac32.u.map name="gain1" value="7.5">
-            <modulators>
-               <modulation sourceName="SlAftTch" modName="" value="65.0"/>
-            </modulators>
-         </frac32.u.map>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_4" x="308" y="154">
       <params>
          <frac32.u.map name="amp" value="17.0">
@@ -142,6 +132,16 @@
          <frac32.u.map name="amp" value="17.5">
             <modulators>
                <modulation sourceName="SlAftTch" modName="" value="49.0"/>
+            </modulators>
+         </frac32.u.map>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 1" uuid="26fb1fe4ed25d8bc2ac4a3f91ab6b80ed6d9d4fa" name="mix_6" x="238" y="168">
+      <params>
+         <frac32.u.map name="gain1" value="7.5">
+            <modulators>
+               <modulation sourceName="SlAftTch" modName="" value="65.0"/>
             </modulators>
          </frac32.u.map>
       </params>
@@ -362,9 +362,12 @@ fb <<= 5;
       </params>
       <attribs/>
    </obj>
-   <obj type="midi/in/touch" uuid="7e3a4d718388f6d5213accadf5a80121a7c35cc9" name="touch_1" x="28" y="560">
+   <obj type="midi/in/cc hr i" uuid="72d8018c0f072c469fcd902b0423ba8fd5e6433" name="cc_1" x="0" y="560">
       <params/>
-      <attribs/>
+      <attribs>
+         <spinner attributeName="cc" value="1"/>
+         <spinner attributeName="default" value="0"/>
+      </attribs>
    </obj>
    <obj type="lfo/square" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_1" x="112" y="560">
       <params>
@@ -561,7 +564,7 @@ fb <<= 5;
          <dest obj="out_1" inlet="right"/>
       </net>
       <net>
-         <source obj="touch_1" outlet="o"/>
+         <source obj="cc_1" outlet="midiCC"/>
          <dest obj="lowpass_1" inlet="in"/>
          <dest obj="*_1" inlet="a"/>
          <dest obj="*_1" inlet="b"/>
@@ -627,9 +630,9 @@ fb <<= 5;
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>12</x>
-      <y>58</y>
-      <width>1886</width>
-      <height>976</height>
+      <x>0</x>
+      <y>23</y>
+      <width>1440</width>
+      <height>877</height>
    </windowPos>
 </patch-1.0>

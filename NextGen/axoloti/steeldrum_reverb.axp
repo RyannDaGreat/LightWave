@@ -1,5 +1,20 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="midi/in/monitor" uuid="b51863ca-6afa-4d29-acfd-c8c2fe06cb16" name="monitor_1" x="336" y="196">
+   <obj type="controller/cycle buttons" uuid="692e0b97-3812-432f-b052-4d17ba7d2380" name="obj_1" x="0" y="56">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/in/cc i" uuid="614eb76edef2b43632fa1fcda25aab54f821daf6" name="MIDI Change Pach_" x="14" y="98">
+      <params/>
+      <attribs>
+         <spinner attributeName="cc" value="100"/>
+         <spinner attributeName="default" value="0"/>
+      </attribs>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="Change Patch_" x="112" y="98">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/in/monitor" uuid="b51863ca-6afa-4d29-acfd-c8c2fe06cb16" name="monitor_1" x="350" y="196">
       <params>
          <bool32.tgl name="ControlChange" value="0"/>
          <bool32.tgl name="Note" value="0"/>
@@ -9,129 +24,140 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="000Ryan/ryan/RibbonPressure" uuid="be036bf0-a78f-4ca5-946c-0b35455b24f2" name="obj_2" x="462" y="196">
+   <obj type="000Ryan/ryan/RibbonPressure" uuid="be036bf0-a78f-4ca5-946c-0b35455b24f2" name="obj_2" x="476" y="196">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/in/bend hr" uuid="e4fa0e78f7aa37d4ece5dbd5b5fc726de695a035" name="bend_2" x="448" y="238">
+   <obj type="midi/in/cc i" uuid="614eb76edef2b43632fa1fcda25aab54f821daf6" name="MIDI Change Pach" x="28" y="224">
+      <params/>
+      <attribs>
+         <spinner attributeName="cc" value="100"/>
+         <spinner attributeName="default" value="0"/>
+      </attribs>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="Change Patch" x="126" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/in/bend hr" uuid="e4fa0e78f7aa37d4ece5dbd5b5fc726de695a035" name="bend_2" x="462" y="238">
       <params/>
       <attribs>
          <spinner attributeName="ccl" value="85"/>
       </attribs>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend Range Disp" x="266" y="322">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend Range Disp" x="280" y="322">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Rang Numerator" x="14" y="350">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Rang Numerator" x="28" y="350">
       <params>
          <int32 name="value" value="48"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="rbrt/math/div iif" uuid="fe89a2c7-e258-4e26-9a5f-172ad2538a2a" name="Bend Range" x="140" y="378">
+   <obj type="rbrt/math/div iif" uuid="fe89a2c7-e258-4e26-9a5f-172ad2538a2a" name="Bend Range" x="154" y="378">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Range Denominator" x="0" y="420">
+   <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Range Denominator" x="14" y="420">
       <params>
          <int32 name="value" value="1"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend In Disp" x="154" y="448">
+   <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend In Disp" x="168" y="448">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Bend" x="266" y="448">
+   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Bend" x="280" y="448">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="Vibrato Amplitude" x="868" y="448">
+   <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="Vibrato Amplitude" x="882" y="448">
       <params>
          <frac32.u.map name="amp" value="0.2999997138977051"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="1092" y="448">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="1106" y="448">
       <params>
          <frac32.u.map name="value" value="35.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Emphasis" x="1190" y="490">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Emphasis" x="1204" y="490">
       <params/>
       <attribs/>
    </obj>
-   <obj type="filter/lp m" uuid="1aa1bc51da479ed92429af700591f9d7b9f45f22" name="lp_2" x="1820" y="490">
+   <obj type="filter/lp m" uuid="1aa1bc51da479ed92429af700591f9d7b9f45f22" name="lp_2" x="1834" y="490">
       <params>
          <frac32.s.map name="pitch" value="64.0"/>
          <frac32.u.map name="reso" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Vibrato" x="980" y="532">
+   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Vibrato" x="994" y="532">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/in/bend" uuid="7bd8cace52a8c26ed61d80f65e238408d5d621f4" name="Bend In" x="42" y="546">
+   <obj type="midi/in/bend" uuid="7bd8cace52a8c26ed61d80f65e238408d5d621f4" name="Bend In" x="56" y="546">
       <params/>
       <attribs/>
    </obj>
-   <obj type="cpwitz/lfo/tri" uuid="cpwitz-lfo-tri" name="Vibrato LFO" x="868" y="546">
+   <obj type="cpwitz/lfo/tri" uuid="cpwitz-lfo-tri" name="Vibrato LFO" x="882" y="546">
       <params>
          <frac32.s.map name="pitch" value="2.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="drj/math/sum3" uuid="93cb11244907aed86ae7d7f2274d118a23d46692" name="Total Pitch" x="336" y="588">
+   <obj type="drj/math/sum3" uuid="93cb11244907aed86ae7d7f2274d118a23d46692" name="Total Pitch" x="350" y="588">
       <params/>
       <attribs/>
    </obj>
-   <obj type="phi/ctrl/i bp" uuid="e5bf3953ead204874695afgd85c0et3a027r74f1" name="Extra Pitch" x="56" y="630">
+   <obj type="phi/ctrl/i bp" uuid="e5bf3953ead204874695afgd85c0et3a027r74f1" name="Extra Pitch" x="70" y="630">
       <params>
          <int32 name="c" value="24"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Vibratoed Pitch" x="1190" y="630">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Vibratoed Pitch" x="1204" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="filter/lp m" uuid="1aa1bc51da479ed92429af700591f9d7b9f45f22" name="Low Pass" x="1610" y="630">
+   <obj type="filter/lp m" uuid="1aa1bc51da479ed92429af700591f9d7b9f45f22" name="Low Pass" x="1624" y="630">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
          <frac32.u.map name="reso" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="audio/out left" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_1" x="2408" y="630">
+   <obj type="audio/out left" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_1" x="2422" y="630">
       <params/>
       <attribs/>
    </obj>
-   <obj type="phi/mix/xfade c" uuid="601566fe-6fc4-4f71-8a85-2e43797065d7" name="xfade_2" x="1470" y="644">
+   <obj type="phi/mix/xfade c" uuid="601566fe-6fc4-4f71-8a85-2e43797065d7" name="xfade_2" x="1484" y="644">
       <params>
          <frac32.u.map name="c" value="27.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="gain_3" x="868" y="658">
+   <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="gain_3" x="882" y="658">
       <params>
          <frac32.u.map name="amp" value="17.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Volume" x="1036" y="686">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Volume" x="1050" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_2" x="1890" y="686">
+   <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_2" x="1904" y="686">
       <params>
          <frac32.u.map name="amp" value="4.0"/>
       </params>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="f7febda0-c359-4ea3-9a46-33e0e4702c29" name="Reverb" x="2184" y="686">
+   <patcher type="patch/patcher" uuid="8e288fe3-f2a2-4ed4-bf45-3547c9450125" name="Reverb" x="2198" y="686">
       <params/>
       <attribs/>
       <subpatch appVersion="1.0.12">
@@ -554,18 +580,18 @@
          </windowPos>
       </subpatch>
    </patcher>
-   <obj type="audio/out right" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_2" x="2408" y="686">
+   <obj type="audio/out right" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_2" x="2422" y="686">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/in/keyb zone" uuid="e7413176a91acc060036fd7f68fda24bbee265d3" name="MIDI Notes" x="28" y="714">
+   <obj type="midi/in/keyb zone" uuid="e7413176a91acc060036fd7f68fda24bbee265d3" name="MIDI Notes" x="42" y="714">
       <params/>
       <attribs>
          <spinner attributeName="startNote" value="0"/>
          <spinner attributeName="endNote" value="127"/>
       </attribs>
    </obj>
-   <patchobj type="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0" name="1 Sample Delay" x="728" y="728">
+   <patchobj type="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0" name="1 Sample Delay" x="742" y="728">
       <params/>
       <attribs/>
       <object id="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0">
@@ -584,23 +610,23 @@
 mem=inlet_i1;]]></code.krate>
       </object>
    </patchobj>
-   <obj type="osc/brds/saw" uuid="ed06f020-7e68-4db6-836a-95a85e200cfb" name="saw_1" x="1386" y="770">
+   <obj type="osc/brds/saw" uuid="ed06f020-7e68-4db6-836a-95a85e200cfb" name="saw_1" x="1400" y="770">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_2" x="2310" y="770">
+   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_2" x="2324" y="770">
       <params>
          <frac32.u.map name="gain1" value="25.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="Gate" x="182" y="784">
+   <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="Gate" x="196" y="784">
       <params/>
       <attribs/>
    </obj>
-   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="Gate Envelope" x="882" y="812">
+   <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="Gate Envelope" x="896" y="812">
       <params>
          <frac32.s.map name="a" value="20.0"/>
          <frac32.s.map name="d" value="50.0"/>
@@ -609,95 +635,95 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="c16a625a661f40e4b359db604dcd00b3befcdbe3" name="*_1" x="2142" y="840">
+   <obj type="math/*" uuid="c16a625a661f40e4b359db604dcd00b3befcdbe3" name="*_1" x="2156" y="840">
       <params/>
       <attribs/>
    </obj>
-   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="Gate Override" x="56" y="854">
+   <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="Gate Override" x="70" y="854">
       <params>
          <bool32.mom name="b" value="0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_3" x="2352" y="854">
+   <obj type="mix/mix 1 sq" uuid="cf790039775b62697a4b34e7a5389a5a8cc36e30" name="mix_3" x="2366" y="854">
       <params>
          <frac32.u.map name="gain1" value="51.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/glide" uuid="cfa0324c7cc8ebfd6e03c6b92f41115e3172d0d9" name="Legato" x="980" y="868">
+   <obj type="math/glide" uuid="cfa0324c7cc8ebfd6e03c6b92f41115e3172d0d9" name="Legato" x="994" y="868">
       <params>
          <frac32.u.map name="time" value="20.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="osc/pwm" uuid="a6b40ff63f161d8bac8ea2eba5b0dbffcf49b472" name="pwm_1" x="1568" y="868">
+   <obj type="osc/pwm" uuid="a6b40ff63f161d8bac8ea2eba5b0dbffcf49b472" name="pwm_1" x="1582" y="868">
       <params>
          <frac32.s.map name="pitch" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Gated Pressure" x="504" y="896">
+   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Gated Pressure" x="518" y="896">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/smooth2" uuid="9ba3ddec912512e6b63211080e89cb25b6d84834" name="Smooth Pressure" x="616" y="896">
+   <obj type="math/smooth2" uuid="9ba3ddec912512e6b63211080e89cb25b6d84834" name="Smooth Pressure" x="630" y="896">
       <params>
          <frac32.u.map name="risetime" value="0.0"/>
          <frac32.u.map name="falltime" value="40.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="phi/mix/xfade c" uuid="601566fe-6fc4-4f71-8a85-2e43797065d7" name="xfade_1" x="1764" y="910">
+   <obj type="phi/mix/xfade c" uuid="601566fe-6fc4-4f71-8a85-2e43797065d7" name="xfade_1" x="1778" y="910">
       <params>
          <frac32.u.map name="c" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="Extra Pressure" x="56" y="924">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="Extra Pressure" x="70" y="924">
       <params>
          <frac32.s.map name="value" value="0.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="1498" y="938">
+   <obj type="ctrl/dial b" uuid="862e7d7f29093cb1ce4aed72244d118ad4d46692" name="dial_2" x="1512" y="938">
       <params>
          <frac32.s.map name="value" value="27.0"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="phi/mix/xfade c" uuid="601566fe-6fc4-4f71-8a85-2e43797065d7" name="xfade_3" x="2212" y="938">
+   <obj type="phi/mix/xfade c" uuid="601566fe-6fc4-4f71-8a85-2e43797065d7" name="xfade_3" x="2226" y="938">
       <params>
          <frac32.u.map name="c" value="42.5"/>
       </params>
       <attribs/>
    </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Total Pressure" x="154" y="980">
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="Total Pressure" x="168" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/max" uuid="12440f9565ca6f036f087665b49fb708062e90d0" name="Non Negative" x="266" y="980">
+   <obj type="math/max" uuid="12440f9565ca6f036f087665b49fb708062e90d0" name="Non Negative" x="280" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Gained Pressure" x="392" y="980">
+   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Gained Pressure" x="406" y="980">
       <params/>
       <attribs/>
    </obj>
-   <obj type="midi/in/cc" uuid="6096d217701cbdf251a9ab6ba029af78c5722a56" name="Mod Wheel" x="42" y="1022">
+   <obj type="midi/in/cc" uuid="6096d217701cbdf251a9ab6ba029af78c5722a56" name="Mod Wheel" x="56" y="1022">
       <params/>
       <attribs>
          <spinner attributeName="cc" value="1"/>
          <spinner attributeName="default" value="0"/>
       </attribs>
    </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="Zero" x="154" y="1050">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="Zero" x="168" y="1050">
       <params/>
       <attribs>
          <spinner attributeName="value" value="0"/>
       </attribs>
    </obj>
-   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="280" y="1050">
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_3" x="294" y="1050">
       <params>
          <frac32.u.map name="value" value="31.0"/>
       </params>
@@ -886,6 +912,22 @@ mem=inlet_i1;]]></code.krate>
          <source obj="xfade_3" outlet="o"/>
          <dest obj="out_2" inlet="wave"/>
          <dest obj="out_1" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="MIDI Change Pach" outlet="midiCC"/>
+         <dest obj="Change Patch" inlet="i"/>
+      </net>
+      <net>
+         <source obj="MIDI Change Pach" outlet="trig"/>
+         <dest obj="Change Patch" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="MIDI Change Pach_" outlet="midiCC"/>
+         <dest obj="Change Patch_" inlet="i"/>
+      </net>
+      <net>
+         <source obj="MIDI Change Pach_" outlet="trig"/>
+         <dest obj="Change Patch_" inlet="trig"/>
       </net>
    </nets>
    <settings>

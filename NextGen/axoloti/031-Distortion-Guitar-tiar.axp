@@ -1,0 +1,812 @@
+<patch-1.0 appVersion="1.0.12">
+   <obj type="midi/in/cc i" uuid="614eb76edef2b43632fa1fcda25aab54f821daf6" name="MIDI Change Pach" x="0" y="0">
+      <params/>
+      <attribs>
+         <spinner attributeName="cc" value="100"/>
+         <spinner attributeName="default" value="0"/>
+      </attribs>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="Change Patch" x="98" y="0">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="controller/cycle buttons" uuid="692e0b97-3812-432f-b052-4d17ba7d2380" name="obj_1" x="182" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="84" y="112" text="Double Saturation  Patch by T.Rochebois (aka Smashed Transistors/TiaR)"/>
+   <obj type="patch/modsource_cc" uuid="51a13657c316562376567970bbc2a6308abfb7c7" name="ModWhl" x="14" y="140">
+      <params/>
+      <attribs>
+         <spinner attributeName="cc" value="1"/>
+      </attribs>
+   </obj>
+   <obj type="midi/in/touch" uuid="7e3a4d718388f6d5213accadf5a80121a7c35cc9" name="touch_1" x="140" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="kfilter/lowpass" uuid="4f0d68b39b6f6b1c1d371b028d84391d14062d68" name="lowpass_1" x="224" y="140">
+      <params>
+         <frac32.s.map name="freq" value="-24.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="lfo/square" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_1" x="322" y="140">
+      <params>
+         <frac32.s.map name="pitch" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="patch/modsource" uuid="c98f018a8d204ef6df1bf7008af6fd7d20f12fe4" name="AftTch" x="420" y="140">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="14" y="308" text="SelfPM Generators provide simple decaying signals"/>
+   <comment type="patch/comment" x="336" y="308" text="Oversampling"/>
+   <comment type="patch/comment" x="490" y="308" text="This is the oversampled double clip with an intermediate high pass filter"/>
+   <comment type="patch/comment" x="952" y="308" text="Downsampling"/>
+   <patcher type="patch/patcher" uuid="3ebef2c7-30a9-40de-ad0b-937b544cfe3a" name="patcher_1" x="56" y="336">
+      <params>
+         <frac32.s.map name="sine_2" value="8.0">
+            <modulators>
+               <modulation sourceName="ModWhl" modName="" value="-4.0"/>
+            </modulators>
+         </frac32.s.map>
+         <frac32.u.map name="mix_1:gain1" value="0.0">
+            <modulators>
+               <modulation sourceName="ModWhl" modName="" value="0.15"/>
+               <modulation sourceName="AftTch" modName="" value="0.05"/>
+            </modulators>
+         </frac32.u.map>
+         <int32 name="SelfPMBank_1:detune" value="5"/>
+      </params>
+      <attribs>
+         <combo attributeName="poly" selection="5"/>
+      </attribs>
+      <subpatch appVersion="1.0.12">
+         <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend Range Disp" x="14" y="28">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Rang Numerator" x="0" y="56">
+            <params>
+               <int32 name="value" value="48"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="midi/in/keyb" uuid="53b04874696932f38aceaa168bd5d9efb743716d" name="keyb_1" x="686" y="70">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="env/adsr" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="adsr_2" x="1708" y="70">
+            <params>
+               <frac32.s.map name="a" value="-64.0"/>
+               <frac32.s.map name="d" value="60.0"/>
+               <frac32.u.map name="s" value="0.0"/>
+               <frac32.s.map name="r" value="-58.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="rbrt/math/div iif" uuid="fe89a2c7-e258-4e26-9a5f-172ad2538a2a" name="Bend Range" x="126" y="84">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/i" uuid="a3786816db6ea5bc6ac4193a5cccdb2c83b83496" name="Bend Range Denominator" x="0" y="126">
+            <params>
+               <int32 name="value" value="1"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend In Disp" x="154" y="154">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Bend" x="266" y="154">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="midi/in/bend" uuid="7bd8cace52a8c26ed61d80f65e238408d5d621f4" name="bend_1" x="630" y="182">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="kfilter/lowpass" uuid="4f0d68b39b6f6b1c1d371b028d84391d14062d68" name="lowpass_2" x="728" y="182">
+            <params>
+               <frac32.s.map name="freq" value="-14.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_1" x="896" y="182">
+            <params>
+               <frac32.u.map name="value" value="52.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <comment type="patch/comment" x="1120" y="238" text="This is the oscillator: 4 detuned sawteeth put in allpass filters to scramble phase coincidences"/>
+         <obj type="midi/in/bend" uuid="7bd8cace52a8c26ed61d80f65e238408d5d621f4" name="Bend In" x="42" y="252">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_2" x="630" y="266">
+            <params>
+               <frac32.s.map name="pitch" onParent="true" value="8.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_1" x="728" y="266">
+            <params>
+               <frac32.u.map name="amp" value="29.5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="mix/mix 2 g" uuid="a68d65dda222bc916b36b283cc06d2edd719bf3b" name="mix_1" x="882" y="266">
+            <params>
+               <frac32.u.map name="gain1" onParent="true" value="0.0"/>
+               <frac32.u.map name="gain2" value="0.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="tiar/dev/4 self PM oscs" uuid="3c69df16-7b2a-40bd-9058-ec85890055db" name="SelfPMBank_1" x="980" y="266">
+            <params>
+               <frac32.s.map name="pitch" value="0.0"/>
+               <frac32.s.map name="fb1" value="43.0"/>
+               <frac32.s.map name="fb0" value="50.0"/>
+               <int32 name="detune" onParent="true" value="5"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_1" x="1106" y="266">
+            <params>
+               <frac32.s.map name="g" value="-52.0"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="1159"/>
+            </attribs>
+         </obj>
+         <obj type="math/+" uuid="faedbea4612d9bd3644d6d3bf31946d848a70e19" name="+_1" x="1204" y="266">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_2" x="1274" y="266">
+            <params>
+               <frac32.s.map name="g" value="-52.0"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="439"/>
+            </attribs>
+         </obj>
+         <obj type="math/+" uuid="faedbea4612d9bd3644d6d3bf31946d848a70e19" name="+_2" x="1372" y="266">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_3" x="1442" y="266">
+            <params>
+               <frac32.s.map name="g" value="42.0"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="159"/>
+            </attribs>
+         </obj>
+         <obj type="math/+" uuid="faedbea4612d9bd3644d6d3bf31946d848a70e19" name="+_3" x="1540" y="266">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_4" x="1610" y="266">
+            <params>
+               <frac32.s.map name="g" value="48.0"/>
+            </params>
+            <attribs>
+               <spinner attributeName="delay" value="60"/>
+            </attribs>
+         </obj>
+         <obj type="filter/hp1" uuid="abea7276611b289bed35b80345a6bc4efd4d9a4e" name="hp1_1" x="1708" y="266">
+            <params>
+               <frac32.s.map name="freq" value="-7.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1806" y="266">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="outlet_1" x="1862" y="266">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="drj/math/sum3" uuid="93cb11244907aed86ae7d7f2274d118a23d46692" name="Total Pitch" x="336" y="294">
+            <params/>
+            <attribs/>
+         </obj>
+         <obj type="phi/ctrl/i bp" uuid="e5bf3953ead204874695afgd85c0et3a027r74f1" name="Extra Pitch" x="56" y="336">
+            <params>
+               <int32 name="c" value="24"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="midi/in/keyb zone" uuid="e7413176a91acc060036fd7f68fda24bbee265d3" name="MIDI Notes" x="28" y="420">
+            <params/>
+            <attribs>
+               <spinner attributeName="startNote" value="0"/>
+               <spinner attributeName="endNote" value="127"/>
+            </attribs>
+         </obj>
+         <patchobj type="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0" name="1 Sample Delay" x="644" y="434">
+            <params/>
+            <attribs/>
+            <object id="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0">
+               <inlets>
+                  <bool32 name="i1"/>
+               </inlets>
+               <outlets>
+                  <bool32 name="o1"/>
+               </outlets>
+               <displays/>
+               <params/>
+               <attribs/>
+               <includes/>
+               <code.declaration><![CDATA[bool mem;]]></code.declaration>
+               <code.krate><![CDATA[outlet_o1=mem;
+mem=inlet_i1;]]></code.krate>
+            </object>
+         </patchobj>
+         <obj type="math/glide" uuid="cfa0324c7cc8ebfd6e03c6b92f41115e3172d0d9" name="glide_1" x="770" y="434">
+            <params>
+               <frac32.u.map name="time" value="33.0"/>
+            </params>
+            <attribs/>
+         </obj>
+         <obj type="logic/or 2" uuid="3805d3c84d30032a44fbdbe42d9a2988a1790a3e" name="Gate" x="182" y="490">
+            <params/>
+            <attribs/>
+         </obj>
+         <nets>
+            <net>
+               <source obj="keyb_1" outlet="gate"/>
+               <dest obj="adsr_2" inlet="gate"/>
+            </net>
+            <net>
+               <source obj="mix_1" outlet="out"/>
+               <dest obj="SelfPMBank_1" inlet="pitch"/>
+            </net>
+            <net>
+               <source obj="*c_1" outlet="out"/>
+               <dest obj="mix_1" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="sine_2" outlet="wave"/>
+               <dest obj="*c_1" inlet="in"/>
+            </net>
+            <net>
+               <source obj="adsr_2" outlet="env"/>
+               <dest obj="vca_1" inlet="v"/>
+            </net>
+            <net>
+               <source obj="SelfPMBank_1" outlet="wave0"/>
+               <dest obj="allpass_1" inlet="in"/>
+            </net>
+            <net>
+               <source obj="hp1_1" outlet="out"/>
+               <dest obj="vca_1" inlet="a"/>
+            </net>
+            <net>
+               <source obj="allpass_1" outlet="out"/>
+               <dest obj="+_1" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="SelfPMBank_1" outlet="wave1"/>
+               <dest obj="+_1" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="allpass_2" outlet="out"/>
+               <dest obj="+_2" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="+_1" outlet="out"/>
+               <dest obj="allpass_2" inlet="in"/>
+            </net>
+            <net>
+               <source obj="SelfPMBank_1" outlet="wave2"/>
+               <dest obj="+_2" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="allpass_3" outlet="out"/>
+               <dest obj="+_3" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="+_2" outlet="out"/>
+               <dest obj="allpass_3" inlet="in"/>
+            </net>
+            <net>
+               <source obj="SelfPMBank_1" outlet="wave3"/>
+               <dest obj="+_3" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="+_3" outlet="out"/>
+               <dest obj="allpass_4" inlet="in"/>
+            </net>
+            <net>
+               <source obj="allpass_4" outlet="out"/>
+               <dest obj="hp1_1" inlet="in"/>
+            </net>
+            <net>
+               <source obj="dial_1" outlet="out"/>
+               <dest obj="SelfPMBank_1" inlet="gain"/>
+            </net>
+            <net>
+               <source obj="lowpass_2" outlet="out"/>
+               <dest obj="mix_1" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="bend_1" outlet="bend"/>
+               <dest obj="lowpass_2" inlet="in"/>
+            </net>
+            <net>
+               <source obj="vca_1" outlet="o"/>
+               <dest obj="outlet_1" inlet="outlet"/>
+            </net>
+            <net>
+               <source obj="1 Sample Delay" outlet="o1"/>
+               <dest obj="glide_1" inlet="en"/>
+            </net>
+            <net>
+               <source obj="Gate" outlet="o"/>
+               <dest obj="1 Sample Delay" inlet="i1"/>
+            </net>
+            <net>
+               <source obj="MIDI Notes" outlet="gate"/>
+               <dest obj="Gate" inlet="i1"/>
+            </net>
+            <net>
+               <source obj="Bend In" outlet="bend"/>
+               <dest obj="Bend In Disp" inlet="in"/>
+               <dest obj="Bend" inlet="b"/>
+            </net>
+            <net>
+               <source obj="Bend" outlet="result"/>
+               <dest obj="Total Pitch" inlet="in1"/>
+            </net>
+            <net>
+               <source obj="MIDI Notes" outlet="note"/>
+               <dest obj="Total Pitch" inlet="in3"/>
+            </net>
+            <net>
+               <source obj="Total Pitch" outlet="out"/>
+               <dest obj="glide_1" inlet="in"/>
+            </net>
+            <net>
+               <source obj="Bend Rang Numerator" outlet="out"/>
+               <dest obj="Bend Range" inlet="a"/>
+            </net>
+            <net>
+               <source obj="Bend Range Denominator" outlet="out"/>
+               <dest obj="Bend Range" inlet="b"/>
+            </net>
+            <net>
+               <source obj="Bend Range" outlet="float"/>
+               <dest obj="Bend" inlet="a"/>
+               <dest obj="Bend Range Disp" inlet="in"/>
+            </net>
+            <net>
+               <source obj="Extra Pitch" outlet="out"/>
+               <dest obj="Total Pitch" inlet="in2"/>
+            </net>
+            <net>
+               <source obj="glide_1" outlet="out"/>
+               <dest obj="mix_1" inlet="bus_in"/>
+            </net>
+         </nets>
+         <settings>
+            <subpatchmode>polyphonic</subpatchmode>
+            <MidiChannel>1</MidiChannel>
+            <NPresets>0</NPresets>
+            <NPresetEntries>0</NPresetEntries>
+            <NModulationSources>1</NModulationSources>
+            <NModulationTargetsPerSource>1</NModulationTargetsPerSource>
+            <Author>T.Rochebois</Author>
+            <License>LGPL</License>
+            <Saturate>false</Saturate>
+         </settings>
+         <notes><![CDATA[]]></notes>
+         <windowPos>
+            <x>49</x>
+            <y>282</y>
+            <width>1440</width>
+            <height>816</height>
+         </windowPos>
+      </subpatch>
+   </patcher>
+   <obj type="tiar/conv/SR to O2 6" uuid="a0fd6d35-3135-4990-b947-3bf5fe337ef7" name="SR_1" x="322" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="tiar/dist/O2DPSoftClip" uuid="7a49e9bf-346e-4038-9eca-02991a7b618f" name="O2DPSoftClip_1" x="462" y="336">
+      <params>
+         <frac32.u.map name="InGain" value="56.0">
+            <modulators>
+               <modulation sourceName="AftTch" modName="" value="10.0"/>
+            </modulators>
+         </frac32.u.map>
+         <frac32.u.map name="OutGain" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/dev/O2 multimode svf m" uuid="bfb0d405-5f20-468d-b727-48c7cf0160c3" name="O2_1" x="602" y="336">
+      <params>
+         <frac32.s.map name="pitch" value="5.0">
+            <modulators>
+               <modulation sourceName="AftTch" modName="" value="23.0"/>
+            </modulators>
+         </frac32.s.map>
+         <frac32.u.map name="reso" value="13.0">
+            <modulators>
+               <modulation sourceName="AftTch" modName="" value="7.0"/>
+            </modulators>
+         </frac32.u.map>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/dist/O2DPSoftClip" uuid="7a49e9bf-346e-4038-9eca-02991a7b618f" name="O2DPSoftClip_2" x="784" y="336">
+      <params>
+         <frac32.u.map name="InGain" value="38.0">
+            <modulators>
+               <modulation sourceName="AftTch" modName="" value="16.0"/>
+            </modulators>
+         </frac32.u.map>
+         <frac32.u.map name="OutGain" value="27.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/conv/O2 to SR 59" uuid="887de25b-b437-4442-8068-2732559237c0" name="O2_2" x="938" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="784" y="462" text="A small doc explaining my extension of the DPW algorithm"/>
+   <hyperlink type="patch/hyperlink" name="http://stash.reaper.fm/28384/DifferentiatedPolynomialWaveTables.pdf" x="784" y="476"/>
+   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="154" y="546">
+      <params>
+         <frac32.u.map name="amp" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/disp/scope" uuid="0991142e-58fa-47e6-9f89-32da05f9fe41" name="scope_3" x="252" y="546">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_3" x="420" y="546">
+      <params>
+         <frac32.u.map name="amp" value="26.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/disp/scope" uuid="0991142e-58fa-47e6-9f89-32da05f9fe41" name="scope_4" x="518" y="546">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_2" x="658" y="546">
+      <params>
+         <frac32.u.map name="amp" value="7.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/disp/scope" uuid="0991142e-58fa-47e6-9f89-32da05f9fe41" name="scope_2" x="756" y="546">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_4" x="896" y="546">
+      <params>
+         <frac32.u.map name="amp" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/disp/scope" uuid="0991142e-58fa-47e6-9f89-32da05f9fe41" name="scope_5" x="994" y="546">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="filter/lp1" uuid="1b1fd7085e44d2b7b80b59b8d68796b909c1b2cc" name="lp1_1" x="84" y="742">
+      <params>
+         <frac32.s.map name="freq" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="602" y="784" text="This is a stereo delay"/>
+   <comment type="patch/comment" x="1078" y="784" text="Output stages"/>
+   <obj type="delay/read" uuid="9323a43569373145e559ad309eaf65a47b14cb54" name="read_1" x="322" y="812">
+      <params>
+         <frac32.u.map name="time" value="54.0">
+            <presets/>
+         </frac32.u.map>
+      </params>
+      <attribs>
+         <objref attributeName="delayname" obj="write_1"/>
+      </attribs>
+   </obj>
+   <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_5" x="476" y="812">
+      <params>
+         <frac32.s.map name="g" value="46.0"/>
+      </params>
+      <attribs>
+         <spinner attributeName="delay" value="366"/>
+      </attribs>
+   </obj>
+   <obj type="filter/hp1" uuid="abea7276611b289bed35b80345a6bc4efd4d9a4e" name="hp1_1" x="574" y="812">
+      <params>
+         <frac32.s.map name="freq" value="-16.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="filter/lp1" uuid="1b1fd7085e44d2b7b80b59b8d68796b909c1b2cc" name="lp1_7" x="672" y="812">
+      <params>
+         <frac32.s.map name="freq" value="41.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 1" uuid="e8f482af5b1ec4a2e9cf8ac7ce09e7c0e43cea08" name="mix_1" x="784" y="812">
+      <params>
+         <frac32.u.map name="gain1" value="38.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="delay/write sdram" uuid="5ae03f8d7b815edcfc40585d8bbac2ed48460fba" name="write_1" x="868" y="812">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="32768 (682ms)"/>
+      </attribs>
+   </obj>
+   <obj type="mix/mix 1" uuid="e8f482af5b1ec4a2e9cf8ac7ce09e7c0e43cea08" name="mix_5" x="1008" y="812">
+      <params>
+         <frac32.u.map name="gain1" value="19.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/dist/DPSoftClip" uuid="4664e423-ca15-4925-952a-6d150aa652da" name="DPSoftClip_1" x="1092" y="812">
+      <params>
+         <frac32.u.map name="InGain" value="32.0"/>
+         <frac32.u.map name="OutGain" value="31.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_2" x="1218" y="812">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="56" y="882" text="Ping Pong delay: supplementary delay on right"/>
+   <obj type="delay/write sdram" uuid="5ae03f8d7b815edcfc40585d8bbac2ed48460fba" name="write_3" x="42" y="910">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="32768 (682ms)"/>
+      </attribs>
+   </obj>
+   <obj type="delay/read" uuid="9323a43569373145e559ad309eaf65a47b14cb54" name="read_3" x="154" y="910">
+      <params>
+         <frac32.u.map name="time" value="27.5">
+            <presets/>
+         </frac32.u.map>
+      </params>
+      <attribs>
+         <objref attributeName="delayname" obj="write_3"/>
+      </attribs>
+   </obj>
+   <obj type="delay/read" uuid="9323a43569373145e559ad309eaf65a47b14cb54" name="read_2" x="322" y="910">
+      <params>
+         <frac32.u.map name="time" value="60.5">
+            <presets/>
+         </frac32.u.map>
+      </params>
+      <attribs>
+         <objref attributeName="delayname" obj="write_1"/>
+      </attribs>
+   </obj>
+   <obj type="filter/allpass" uuid="59cc8e3d8044e145e1eb908baa5a7d3ed2ec5f72" name="allpass_6" x="476" y="910">
+      <params>
+         <frac32.s.map name="g" value="-47.0"/>
+      </params>
+      <attribs>
+         <spinner attributeName="delay" value="282"/>
+      </attribs>
+   </obj>
+   <obj type="filter/hp1" uuid="abea7276611b289bed35b80345a6bc4efd4d9a4e" name="hp1_2" x="574" y="910">
+      <params>
+         <frac32.s.map name="freq" value="-16.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="filter/lp1" uuid="1b1fd7085e44d2b7b80b59b8d68796b909c1b2cc" name="lp1_8" x="672" y="910">
+      <params>
+         <frac32.s.map name="freq" value="41.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="mix/mix 1" uuid="e8f482af5b1ec4a2e9cf8ac7ce09e7c0e43cea08" name="mix_2" x="784" y="910">
+      <params>
+         <frac32.u.map name="gain1" value="39.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="delay/write sdram" uuid="5ae03f8d7b815edcfc40585d8bbac2ed48460fba" name="write_2" x="868" y="910">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="32768 (682ms)"/>
+      </attribs>
+   </obj>
+   <obj type="mix/mix 1" uuid="e8f482af5b1ec4a2e9cf8ac7ce09e7c0e43cea08" name="mix_3" x="1008" y="910">
+      <params>
+         <frac32.u.map name="gain1" value="19.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/dist/DPSoftClip" uuid="4664e423-ca15-4925-952a-6d150aa652da" name="DPSoftClip_2" x="1092" y="910">
+      <params>
+         <frac32.u.map name="InGain" value="34.0"/>
+         <frac32.u.map name="OutGain" value="30.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <nets>
+      <net>
+         <source obj="SR_1" outlet="y1"/>
+         <dest obj="O2DPSoftClip_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="SR_1" outlet="y0"/>
+         <dest obj="O2DPSoftClip_1" inlet="in0"/>
+      </net>
+      <net>
+         <source obj="O2_2" outlet="out"/>
+         <dest obj="lp1_1" inlet="in"/>
+         <dest obj="*c_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="O2DPSoftClip_1" outlet="out1"/>
+         <dest obj="O2_1" inlet="x1"/>
+         <dest obj="*c_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="O2DPSoftClip_1" outlet="out0"/>
+         <dest obj="O2_1" inlet="x0"/>
+      </net>
+      <net>
+         <source obj="O2_1" outlet="hp1"/>
+         <dest obj="*c_2" inlet="in"/>
+         <dest obj="O2DPSoftClip_2" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="O2_1" outlet="hp0"/>
+         <dest obj="O2DPSoftClip_2" inlet="in0"/>
+      </net>
+      <net>
+         <source obj="patcher_1" outlet="outlet_1"/>
+         <dest obj="SR_1" inlet="in"/>
+         <dest obj="*c_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="touch_1" outlet="o"/>
+         <dest obj="lowpass_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="lowpass_1" outlet="out"/>
+         <dest obj="AftTch" inlet="v"/>
+      </net>
+      <net>
+         <source obj="square_1" outlet="wave"/>
+         <dest obj="AftTch" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="O2DPSoftClip_2" outlet="out1"/>
+         <dest obj="O2_2" inlet="x1"/>
+      </net>
+      <net>
+         <source obj="O2DPSoftClip_2" outlet="out0"/>
+         <dest obj="O2_2" inlet="x0"/>
+      </net>
+      <net>
+         <source obj="*c_2" outlet="out"/>
+         <dest obj="scope_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="*c_1" outlet="out"/>
+         <dest obj="scope_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="*c_3" outlet="out"/>
+         <dest obj="scope_4" inlet="in"/>
+      </net>
+      <net>
+         <source obj="*c_4" outlet="out"/>
+         <dest obj="scope_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="lp1_7" outlet="out"/>
+         <dest obj="mix_1" inlet="in1"/>
+         <dest obj="mix_5" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="lp1_1" outlet="out"/>
+         <dest obj="mix_1" inlet="bus_in"/>
+         <dest obj="mix_5" inlet="bus_in"/>
+         <dest obj="mix_3" inlet="bus_in"/>
+         <dest obj="write_3" inlet="in"/>
+      </net>
+      <net>
+         <source obj="DPSoftClip_1" outlet="out"/>
+         <dest obj="out_2" inlet="left"/>
+      </net>
+      <net>
+         <source obj="lp1_8" outlet="out"/>
+         <dest obj="mix_2" inlet="in1"/>
+         <dest obj="mix_3" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="DPSoftClip_2" outlet="out"/>
+         <dest obj="out_2" inlet="right"/>
+      </net>
+      <net>
+         <source obj="allpass_5" outlet="out"/>
+         <dest obj="hp1_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="read_1" outlet="out"/>
+         <dest obj="allpass_5" inlet="in"/>
+      </net>
+      <net>
+         <source obj="allpass_6" outlet="out"/>
+         <dest obj="hp1_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="read_2" outlet="out"/>
+         <dest obj="allpass_6" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mix_5" outlet="out"/>
+         <dest obj="DPSoftClip_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mix_3" outlet="out"/>
+         <dest obj="DPSoftClip_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="read_3" outlet="out"/>
+         <dest obj="mix_2" inlet="bus_in"/>
+      </net>
+      <net>
+         <source obj="hp1_1" outlet="out"/>
+         <dest obj="lp1_7" inlet="in"/>
+      </net>
+      <net>
+         <source obj="hp1_2" outlet="out"/>
+         <dest obj="lp1_8" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="write_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="write_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="MIDI Change Pach" outlet="midiCC"/>
+         <dest obj="Change Patch" inlet="i"/>
+      </net>
+      <net>
+         <source obj="MIDI Change Pach" outlet="trig"/>
+         <dest obj="Change Patch" inlet="trig"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+      <MidiChannel>1</MidiChannel>
+      <NPresets>8</NPresets>
+      <NPresetEntries>32</NPresetEntries>
+      <NModulationSources>8</NModulationSources>
+      <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
+      <Author>T.Rochebois</Author>
+      <License>LGPL</License>
+      <Saturate>false</Saturate>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>222</x>
+      <y>25</y>
+      <width>1440</width>
+      <height>877</height>
+   </windowPos>
+</patch-1.0>
