@@ -1,0 +1,145 @@
+<patch-1.0 appVersion="1.0.12">
+   <comment type="patch/comment" x="14" y="14" text="play with the piano!"/>
+   <obj type="logic/and 2" uuid="c67031682f552aa0a80b23377495c51ea28a8c9c" name="and_1" x="238" y="14">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="midi/in/keyb" uuid="53b04874696932f38aceaa168bd5d9efb743716d" name="keyb1" x="14" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="noise/uniform" uuid="a3926ef22ae9ac217cd09933d90101848796eb78" name="rand_1" x="294" y="42">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="392" y="56" text="generates a short burst of noise"/>
+   <obj type="lfo/square" uuid="de6909eb64db13af5b43f979a4c130024b3a4793" name="square_1" x="140" y="84">
+      <params>
+         <frac32.s.map name="pitch" value="-19.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="env/d" uuid="190ae648e41832b41adbedb465317c18a010aefe" name="envd1" x="294" y="84">
+      <params>
+         <frac32.s.map name="d" value="-22.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="406" y="84">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="14" y="210" text="compute the right delay time from pitch"/>
+   <comment type="patch/comment" x="322" y="210" text="interpolating delayline read"/>
+   <comment type="patch/comment" x="518" y="210" text="99% feedback"/>
+   <comment type="patch/comment" x="630" y="210" text="delayline write"/>
+   <obj type="delay/mtod" uuid="bbaeb53acbf18f926c5febae31d8bf2f52725ee" name="mtod_1" x="56" y="252">
+      <params>
+         <frac32.s.map name="pitch" value="8.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/-c" uuid="bc70bed87e5405985ade03f4806b9450609a9093" name="-c1" x="168" y="252">
+      <params>
+         <frac32.u.map name="c" value="0.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="conv/interp" uuid="d68c1a8709d8b55e3de8715d727ec0a2d8569d9a" name="interp_1" x="238" y="252">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="delay/read interp" uuid="e3d8b8823ab551c588659520bf6cc25c630466c7" name="delread2__1" x="322" y="252">
+      <params>
+         <frac32.u.map name="time" value="0.0"/>
+      </params>
+      <attribs>
+         <objref attributeName="delayname" obj="d1"/>
+      </attribs>
+   </obj>
+   <obj type="mix/mix 1" uuid="e8f482af5b1ec4a2e9cf8ac7ce09e7c0e43cea08" name="mix_1" x="518" y="252">
+      <params>
+         <frac32.u.map name="gain1" value="63.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="delay/write" uuid="bd73958e3830021807ee97a8cff4500a72a5710d" name="d1" x="630" y="252">
+      <params/>
+      <attribs>
+         <combo attributeName="size" selection="2048 (42.66ms)"/>
+      </attribs>
+   </obj>
+   <obj type="math/*c" uuid="7a66f52a9594e7e9eb31328ea725cb3641a80b55" name="*c_1" x="644" y="336">
+      <params>
+         <frac32.u.map name="amp" value="15.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="770" y="336">
+      <params/>
+      <attribs/>
+   </obj>
+   <comment type="patch/comment" x="56" y="350" text="bug: tuning reference is incorrect"/>
+   <nets>
+      <net>
+         <source obj="keyb1" outlet="gate"/>
+         <dest obj="square_1" inlet="reset"/>
+      </net>
+      <net>
+         <source obj="envd1" outlet="env"/>
+         <dest obj="vca_1" inlet="v"/>
+      </net>
+      <net>
+         <source obj="rand_1" outlet="wave"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="mix_1" inlet="bus_in"/>
+      </net>
+      <net>
+         <source obj="mix_1" outlet="out"/>
+         <dest obj="d1" inlet="in"/>
+         <dest obj="*c_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="interp_1" outlet="o"/>
+         <dest obj="delread2__1" inlet="time"/>
+      </net>
+      <net>
+         <source obj="-c1" outlet="out"/>
+         <dest obj="interp_1" inlet="i"/>
+      </net>
+      <net>
+         <source obj="keyb1" outlet="note"/>
+         <dest obj="mtod_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="mtod_1" outlet="delay"/>
+         <dest obj="-c1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="delread2__1" outlet="out"/>
+         <dest obj="mix_1" inlet="in1"/>
+      </net>
+      <net>
+         <source obj="*c_1" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+         <dest obj="out_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="square_1" outlet="wave"/>
+         <dest obj="envd1" inlet="trig"/>
+      </net>
+   </nets>
+   <settings>
+      <subpatchmode>no</subpatchmode>
+   </settings>
+   <notes><![CDATA[]]></notes>
+   <windowPos>
+      <x>0</x>
+      <y>23</y>
+      <width>1024</width>
+      <height>660</height>
+   </windowPos>
+</patch-1.0>

@@ -1,4 +1,8 @@
 <patch-1.0 appVersion="1.0.12">
+   <obj type="controller/cycle buttons" uuid="692e0b97-3812-432f-b052-4d17ba7d2380" name="obj_4" x="364" y="42">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="tiar/dist/DPHardClip" uuid="0b95bc90-042b-4d8e-b10a-3750d645adbe" name="DPHardClip_1" x="1904" y="42">
       <params>
          <frac32.u.map name="InGain" value="21.0"/>
@@ -113,15 +117,44 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="controller/cycle buttons" uuid="692e0b97-3812-432f-b052-4d17ba7d2380" name="obj_1" x="182" y="70">
+   <obj type="midi/in/cc i" uuid="614eb76edef2b43632fa1fcda25aab54f821daf6" name="MIDI Change Pach" x="350" y="84">
+      <params/>
+      <attribs>
+         <spinner attributeName="cc" value="100"/>
+         <spinner attributeName="default" value="0"/>
+      </attribs>
+   </obj>
+   <obj type="patch/load i" uuid="b79124f5b7d1e8b39e187677ddab6260ce8c60a3" name="Change Patch" x="448" y="84">
       <params/>
       <attribs/>
    </obj>
+   <patchobj type="patch/object" uuid="6b9ef2a1-43ca-4455-ada0-449f5a247340" name="Bend Range 48 To Save Memory" x="182" y="224">
+      <params/>
+      <attribs/>
+      <object id="patch/object" uuid="6b9ef2a1-43ca-4455-ada0-449f5a247340">
+         <sDescription>divides &apos;green int&apos; by &apos;green int&apos;.result = &apos;blue float&apos;.output CAN overflow.</sDescription>
+         <author>robert schirmer</author>
+         <license>BSD</license>
+         <helpPatch>timeri.axh</helpPatch>
+         <inlets>
+            <int32 name="a"/>
+            <int32 name="b"/>
+         </inlets>
+         <outlets>
+            <frac32.bipolar name="float"/>
+         </outlets>
+         <displays/>
+         <params/>
+         <attribs/>
+         <includes/>
+         <code.krate><![CDATA[outlet_float = (float)((int64_t(48) <<21)/1);]]></code.krate>
+      </object>
+   </patchobj>
    <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="*_3" x="714" y="238">
       <params/>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="1976012f-3576-4324-9469-5e3deaedb988" name="Reverb" x="3038" y="252">
+   <patcher type="patch/patcher" uuid="8cf298d2-6582-4b2e-9e6f-a78f1ba7d4c6" name="Reverb" x="3038" y="252">
       <params/>
       <attribs/>
       <subpatch appVersion="1.0.12">
@@ -562,10 +595,6 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="rbrt/math/div iif" uuid="fe89a2c7-e258-4e26-9a5f-172ad2538a2a" name="Bend Range_" x="154" y="266">
-      <params/>
-      <attribs/>
-   </obj>
    <patchobj type="patch/object" uuid="8dad42b2-7620-4075-b4ce-1e2bb1b312d0" name="dial_1" x="406" y="308">
       <params>
          <frac32.u.map name="value" value="12.5"/>
@@ -659,12 +688,6 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_2" x="182" y="448">
-      <params/>
-      <attribs>
-         <spinner attributeName="value" value="1"/>
-      </attribs>
-   </obj>
    <obj type="midi/in/cc" uuid="6096d217701cbdf251a9ab6ba029af78c5722a56" name="Mod Wheel" x="1820" y="462">
       <params/>
       <attribs>
@@ -675,12 +698,6 @@ mem=inlet_i1;]]></code.krate>
    <obj type="drj/math/sum3" uuid="93cb11244907aed86ae7d7f2274d118a23d46692" name="Total Pitch_" x="322" y="476">
       <params/>
       <attribs/>
-   </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_3" x="182" y="490">
-      <params/>
-      <attribs>
-         <spinner attributeName="value" value="48"/>
-      </attribs>
    </obj>
    <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_3" x="2086" y="490">
       <params>
@@ -950,7 +967,7 @@ mem=inlet_i1;]]></code.krate>
          <dest obj="Legato" inlet="in"/>
       </net>
       <net>
-         <source obj="Bend Range_" outlet="float"/>
+         <source obj="Bend Range 48 To Save Memory" outlet="float"/>
          <dest obj="Bend_" inlet="a"/>
       </net>
       <net>
@@ -966,14 +983,6 @@ mem=inlet_i1;]]></code.krate>
          <dest obj="Total Pitch_" inlet="in2"/>
       </net>
       <net>
-         <source obj="i_2" outlet="out"/>
-         <dest obj="Bend Range_" inlet="b"/>
-      </net>
-      <net>
-         <source obj="i_3" outlet="out"/>
-         <dest obj="Bend Range_" inlet="a"/>
-      </net>
-      <net>
          <source obj="dial_1" outlet="out"/>
          <dest obj="*_3" inlet="a"/>
       </net>
@@ -985,14 +994,22 @@ mem=inlet_i1;]]></code.krate>
          <source obj="1 Sample Delay" outlet="o1"/>
          <dest obj="Legato" inlet="en"/>
       </net>
+      <net>
+         <source obj="MIDI Change Pach" outlet="midiCC"/>
+         <dest obj="Change Patch" inlet="i"/>
+      </net>
+      <net>
+         <source obj="MIDI Change Pach" outlet="trig"/>
+         <dest obj="Change Patch" inlet="trig"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>454</x>
-      <y>228</y>
+      <x>253</x>
+      <y>98</y>
       <width>1440</width>
       <height>877</height>
    </windowPos>
