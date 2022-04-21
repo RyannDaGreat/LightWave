@@ -212,7 +212,7 @@
          <spinner attributeName="value" value="-24"/>
       </attribs>
    </obj>
-   <patcher type="patch/patcher" uuid="ec813c63-3f02-4e1c-9239-e73361883ca0" name="Stereo Blend" x="1988" y="658">
+   <patcher type="patch/patcher" uuid="aa9b6626-8199-47a5-8d6c-3eb34a39b729" name="Stereo Blend" x="1988" y="658">
       <params>
          <frac32.u.map name="Alpha_" value="64.0"/>
       </params>
@@ -326,7 +326,7 @@
       <params/>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="e82ef1a0-9616-440d-9370-80e8464329f1" name="Classic Lightwave Synth" x="1848" y="700">
+   <patcher type="patch/patcher" uuid="acd70081-e570-4f62-a75f-1ec005570d82" name="Classic Lightwave Synth" x="1848" y="700">
       <params/>
       <attribs/>
       <subpatch appVersion="1.0.12">
@@ -336,7 +336,7 @@
          </obj>
          <obj type="sss/osc/guitarOsc" uuid="c4bbe004-2df0-4f89-af60-ad7d3f3d31e2" name="guitarOsc_1" x="518" y="210">
             <params>
-               <frac32.s.map name="pitch" value="1.0"/>
+               <frac32.s.map name="pitch" value="0.0"/>
                <frac32.u.map name="pwm" MidiCC="2" value="64.0"/>
                <frac32.u.map name="mod" value="64.0"/>
                <frac32.u.map name="start" value="23.0"/>
@@ -587,8 +587,8 @@
          <windowPos>
             <x>0</x>
             <y>23</y>
-            <width>400</width>
-            <height>400</height>
+            <width>1440</width>
+            <height>877</height>
          </windowPos>
       </subpatch>
    </patcher>

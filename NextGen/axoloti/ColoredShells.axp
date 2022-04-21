@@ -1,10 +1,10 @@
 <patch-1.0 appVersion="1.0.12">
-   <patcher type="patch/patcher" uuid="473bb96c-198a-4d76-ac73-e985230b3314" name="patcher_1" x="756" y="0">
+   <patcher type="patch/patcher" uuid="f77e4d49-839b-4b0f-8c8f-a11a5fadf1b2" name="patcher_1" x="756" y="0">
       <params>
          <frac32.s.map name="lowpass_1" value="12.0"/>
          <frac32.u.map name="mix_1" value="64.0"/>
-         <frac32.s.map name="ZDF_1:pitch" value="-11.0"/>
-         <frac32.u.map name="ZDF_1:Q" value="13.0"/>
+         <frac32.s.map name="ZDF_1:pitch" MidiCC="4" value="-11.0"/>
+         <frac32.u.map name="ZDF_1:Q" MidiCC="3" value="15.5"/>
       </params>
       <attribs>
          <combo attributeName="poly" selection="1"/>
@@ -445,7 +445,7 @@ mem=inlet_i1;]]></code.krate>
          </settings>
          <notes><![CDATA[]]></notes>
          <windowPos>
-            <x>144</x>
+            <x>0</x>
             <y>153</y>
             <width>1440</width>
             <height>733</height>
@@ -463,6 +463,7 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
+   <comment type="patch/comment" x="448" y="84" text="PATCH MIDI:"/>
    <obj type="midi/in/cc i" uuid="614eb76edef2b43632fa1fcda25aab54f821daf6" name="MIDI Change Pach" x="168" y="98">
       <params/>
       <attribs>
@@ -474,6 +475,32 @@ mem=inlet_i1;]]></code.krate>
       <params/>
       <attribs/>
    </obj>
+   <comment type="patch/comment" x="448" y="98" text="CC2: Volume Gain (Will lead to cool sounding distortion)"/>
+   <comment type="patch/comment" x="448" y="112" text="CC3: ZDF_1:Pitch  Brightness"/>
+   <comment type="patch/comment" x="448" y="126" text="CC4: ZDF_1:Q Sprinkly stardust sound??"/>
+   <patchobj type="patch/object" uuid="846c736c-23b6-4518-ae21-6ef15e34d499" name="*_2" x="560" y="168">
+      <params/>
+      <attribs/>
+      <object id="patch/object" uuid="846c736c-23b6-4518-ae21-6ef15e34d499">
+         <sDescription>multiply</sDescription>
+         <author>Johannes Taelman</author>
+         <license>BSD</license>
+         <helpPatch>math.axh</helpPatch>
+         <inlets>
+            <frac32 name="a" description="input"/>
+            <frac32 name="b" description="input"/>
+         </inlets>
+         <outlets>
+            <frac32 name="result" description="output"/>
+         </outlets>
+         <displays/>
+         <params/>
+         <attribs/>
+         <includes/>
+         <code.krate><![CDATA[outlet_result= ___SMMUL(inlet_a<<3,inlet_b<<2);
+]]></code.krate>
+      </object>
+   </patchobj>
    <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_6" x="84" y="224">
       <params>
          <frac32.s.map name="pitch" value="-57.799999713897705"/>
@@ -492,6 +519,33 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
+   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="*_1" x="1372" y="224">
+      <params/>
+      <attribs/>
+   </obj>
+   <patchobj type="patch/object" uuid="3659077e-b0dd-422e-b371-36968f46b03f" name="Volume" x="1246" y="252">
+      <params>
+         <frac32.u.map name="value" MidiCC="2" value="12.0"/>
+      </params>
+      <attribs/>
+      <object id="patch/object" uuid="3659077e-b0dd-422e-b371-36968f46b03f">
+         <sDescription>bipolar constant value dial</sDescription>
+         <author>Johannes Taelman</author>
+         <license>BSD</license>
+         <helpPatch>ctrl.axh</helpPatch>
+         <inlets/>
+         <outlets>
+            <frac32.bipolar name="out" description="output"/>
+         </outlets>
+         <displays/>
+         <params>
+            <frac32.u.map.gain16 name="value"/>
+         </params>
+         <attribs/>
+         <includes/>
+         <code.krate><![CDATA[outlet_out= param_value;]]></code.krate>
+      </object>
+   </patchobj>
    <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_4" x="84" y="308">
       <params>
          <frac32.s.map name="pitch" value="-44.839998722076416"/>
@@ -508,6 +562,14 @@ mem=inlet_i1;]]></code.krate>
       <params>
          <frac32.s.map name="pitch" value="-17.669999599456787"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1512" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="dist/soft" uuid="e680d76a805e4866027cdf654c7efd8b2e54622" name="soft_1" x="1596" y="350">
+      <params/>
       <attribs/>
    </obj>
    <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_3" x="84" y="392">
@@ -584,7 +646,15 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
-   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1624" y="406">
+   <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="1708" y="406">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1512" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="dist/soft" uuid="e680d76a805e4866027cdf654c7efd8b2e54622" name="soft_2" x="1596" y="420">
       <params/>
       <attribs/>
    </obj>
@@ -606,7 +676,7 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
-   <obj type="tiar/disp/scope" uuid="0991142e-58fa-47e6-9f89-32da05f9fe41" name="scope_1" x="1638" y="602">
+   <obj type="tiar/disp/scope" uuid="0991142e-58fa-47e6-9f89-32da05f9fe41" name="scope_2" x="1652" y="588">
       <params/>
       <attribs/>
    </obj>
@@ -698,8 +768,12 @@ mem=inlet_i1;]]></code.krate>
    <obj type="mix/mix 2" uuid="30c04239c88e09d3fa5c333b784ecf54f1b0e268" name="mix_4" x="1358" y="714">
       <params>
          <frac32.u.map name="gain1" value="64.0"/>
-         <frac32.u.map name="gain2" value="33.0"/>
+         <frac32.u.map name="gain2" value="32.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="tiar/disp/scope" uuid="0991142e-58fa-47e6-9f89-32da05f9fe41" name="scope_1" x="1582" y="826">
+      <params/>
       <attribs/>
    </obj>
    <obj type="lfo/sine" uuid="75f7330c26a13953215dccc3b7b9008545c9daa9" name="sine_14" x="84" y="896">
@@ -860,10 +934,6 @@ mem=inlet_i1;]]></code.krate>
          <dest obj="mix_1" inlet="bus_in"/>
       </net>
       <net>
-         <source obj="mix_2" outlet="out"/>
-         <dest obj="out_1" inlet="left"/>
-      </net>
-      <net>
          <source obj="APNoodle_2" outlet="y"/>
          <dest obj="mix_4" inlet="in1"/>
       </net>
@@ -918,10 +988,6 @@ mem=inlet_i1;]]></code.krate>
       <net>
          <source obj="read_2" outlet="out"/>
          <dest obj="allpass_2" inlet="in"/>
-      </net>
-      <net>
-         <source obj="mix_4" outlet="out"/>
-         <dest obj="out_1" inlet="right"/>
       </net>
       <net>
          <source obj="allpass_1" outlet="out"/>
@@ -1027,6 +1093,38 @@ mem=inlet_i1;]]></code.krate>
       <net>
          <source obj="MIDI Change Pach" outlet="trig"/>
          <dest obj="Change Patch" inlet="trig"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="soft_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="soft_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mix_4" outlet="out"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="mix_2" outlet="out"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="soft_2" outlet="out"/>
+         <dest obj="out_1" inlet="right"/>
+         <dest obj="scope_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="soft_1" outlet="out"/>
+         <dest obj="out_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="Volume" outlet="out"/>
+         <dest obj="*_1" inlet="a"/>
+         <dest obj="*_1" inlet="b"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="vca_2" inlet="v"/>
       </net>
    </nets>
    <settings>
