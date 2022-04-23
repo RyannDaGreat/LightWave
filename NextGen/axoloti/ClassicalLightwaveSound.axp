@@ -206,13 +206,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="112" y="658">
-      <params/>
-      <attribs>
-         <spinner attributeName="value" value="-24"/>
-      </attribs>
-   </obj>
-   <patcher type="patch/patcher" uuid="aa9b6626-8199-47a5-8d6c-3eb34a39b729" name="Stereo Blend" x="1988" y="658">
+   <patcher type="patch/patcher" uuid="0c756533-d46f-4211-aae8-5ec6f6eea32f" name="Stereo Blend" x="1736" y="644">
       <params>
          <frac32.u.map name="Alpha_" value="64.0"/>
       </params>
@@ -316,17 +310,13 @@
          </windowPos>
       </subpatch>
    </patcher>
-   <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="gain_3" x="672" y="700">
-      <params>
-         <frac32.u.map name="amp" value="17.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="784" y="700">
+   <obj type="const/i" uuid="e202f44b2df17ae0b3e663b98ea6b14c8ff00408" name="i_1" x="112" y="658">
       <params/>
-      <attribs/>
+      <attribs>
+         <spinner attributeName="value" value="-24"/>
+      </attribs>
    </obj>
-   <patcher type="patch/patcher" uuid="acd70081-e570-4f62-a75f-1ec005570d82" name="Classic Lightwave Synth" x="1848" y="700">
+   <patcher type="patch/patcher" uuid="d51992b3-2f7a-4dd8-922e-759ed4fa4d11" name="Classic Lightwave Synth" x="1596" y="686">
       <params/>
       <attribs/>
       <subpatch appVersion="1.0.12">
@@ -592,12 +582,26 @@
          </windowPos>
       </subpatch>
    </patcher>
+   <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="gain_3" x="672" y="700">
+      <params>
+         <frac32.u.map name="amp" value="17.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_2" x="784" y="700">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="midi/in/keyb zone" uuid="e7413176a91acc060036fd7f68fda24bbee265d3" name="MIDI Notes" x="28" y="714">
       <params/>
       <attribs>
          <spinner attributeName="startNote" value="0"/>
          <spinner attributeName="endNote" value="127"/>
       </attribs>
+   </obj>
+   <obj type="audio/out left" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_3" x="2142" y="714">
+      <params/>
+      <attribs/>
    </obj>
    <obj type="math/-" uuid="3280bb759e9fc189e134300e48dda7e903c9a110" name="-_1" x="210" y="728">
       <params/>
@@ -607,8 +611,16 @@
       <params/>
       <attribs/>
    </obj>
-   <obj type="audio/out left" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_1" x="2114" y="742">
-      <params/>
+   <obj type="drj/audio/stereo_vol" uuid="awc8867f01982911058927f531cc6a1e565a1054" name="stereo_vol_1" x="1890" y="742">
+      <params>
+         <frac32.u.map name="volume" MidiCC="11" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="phi/spat/pan st c" uuid="69e7925b-96ef-456d-8267-2a26d8284084" name="pan_1" x="2030" y="742">
+      <params>
+         <frac32.s.map name="pan" MidiCC="12" value="0.0"/>
+      </params>
       <attribs/>
    </obj>
    <patchobj type="patch/object" uuid="197175e4-fa28-4b97-bab2-8c95910dd6e0" name="1 Sample Delay" x="378" y="770">
@@ -638,6 +650,10 @@ mem=inlet_i1;]]></code.krate>
       <params/>
       <attribs/>
    </obj>
+   <obj type="audio/out right" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_4" x="2142" y="784">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="env/adsr m" uuid="98bd39fb828c392b28126d259cb5175e6f6ea34b" name="ADSR" x="658" y="812">
       <params>
          <frac32.s.map name="a" value="13.0"/>
@@ -651,10 +667,6 @@ mem=inlet_i1;]]></code.krate>
       <params>
          <frac32.u.map name="time" MidiCC="6" value="29.5"/>
       </params>
-      <attribs/>
-   </obj>
-   <obj type="audio/out right" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_2" x="2156" y="812">
-      <params/>
       <attribs/>
    </obj>
    <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Factored Gate" x="798" y="840">
@@ -972,12 +984,28 @@ mem=inlet_i1;]]></code.krate>
       <net>
          <source obj="Classic Lightwave Synth" outlet="Left"/>
          <dest obj="Stereo Blend" inlet="R1 In"/>
-         <dest obj="out_1" inlet="wave"/>
+         <dest obj="stereo_vol_1" inlet="left"/>
       </net>
       <net>
          <source obj="Classic Lightwave Synth" outlet="Right"/>
          <dest obj="Stereo Blend" inlet="L1 In"/>
-         <dest obj="out_2" inlet="wave"/>
+         <dest obj="stereo_vol_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="pan_1" outlet="left"/>
+         <dest obj="out_3" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="pan_1" outlet="right"/>
+         <dest obj="out_4" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="stereo_vol_1" outlet="left"/>
+         <dest obj="pan_1" inlet="L"/>
+      </net>
+      <net>
+         <source obj="stereo_vol_1" outlet="right"/>
+         <dest obj="pan_1" inlet="R"/>
       </net>
    </nets>
    <settings>

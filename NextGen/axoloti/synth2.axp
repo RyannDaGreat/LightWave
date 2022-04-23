@@ -206,7 +206,7 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="stomps/flanger1" uuid="1393ca21-ebd8-4ab3-91e8-2b3dd0915e31" name="obj_1" x="1932" y="532">
+   <obj type="stomps/flanger1" uuid="3d4a05a8-305e-47c7-9f8c-8cc747162b53" name="obj_1" x="1932" y="532">
       <params>
          <bool32.tgl name="on" value="1"/>
          <frac32.u.map name="fdbk" value="32.5"/>
@@ -285,7 +285,7 @@
    </obj>
    <obj type="math/gain" uuid="62b1c1a6337c7c8f6aec96408a432477b113cfa0" name="gain_2" x="1470" y="714">
       <params>
-         <frac32.u.map name="amp" value="17.5"/>
+         <frac32.u.map name="amp" value="29.0"/>
       </params>
       <attribs/>
    </obj>
@@ -294,10 +294,6 @@
       <attribs/>
    </obj>
    <obj type="math/+" uuid="44553fdc8628c67ab535845ed1be304ad6c9553b" name="+_1" x="994" y="728">
-      <params/>
-      <attribs/>
-   </obj>
-   <obj type="audio/out left" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_1" x="2114" y="742">
       <params/>
       <attribs/>
    </obj>
@@ -351,7 +347,7 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
-   <obj type="fx/chorus" uuid="3c28c6eb-baab-45e3-b30e-4937bf160bc0" name="obj_3" x="1750" y="798">
+   <obj type="fx/chorus" uuid="3c28c6eb-baab-45e3-b30e-4937bf160bc0" name="obj_3" x="1806" y="798">
       <params>
          <frac32.u.map name="depth" MidiCC="3" value="0.0"/>
          <frac32.s.map name="speed" value="-64.0"/>
@@ -373,7 +369,7 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="6b091442-1fb4-4fb7-b835-21c334e28eb7" name="Partial Reverb" x="1848" y="812">
+   <patcher type="patch/patcher" uuid="2e4542f3-72ba-4906-84b3-c25996eef1e1" name="Partial Reverb" x="1932" y="812">
       <params>
          <frac32.u.map name="verb1_1:mix" value="42.5"/>
          <frac32.u.map name="verb1_1:feed" value="30.5"/>
@@ -430,7 +426,7 @@ mem=inlet_i1;]]></code.krate>
             <params/>
             <attribs/>
          </obj>
-         <patcher type="patch/patcher" uuid="3820f265-3076-47e3-ba9f-4cc0b642c7fe" name="Reverb 2" x="294" y="336">
+         <patcher type="patch/patcher" uuid="221f37ae-055b-411e-8ce5-dad7ef633098" name="Reverb 2" x="294" y="336">
             <params>
                <bool32.tgl name="on" value="1"/>
                <frac32.u.map name="*c_1" onParent="true" value="17.5"/>
@@ -680,12 +676,24 @@ mem=inlet_i1;]]></code.krate>
          </windowPos>
       </subpatch>
    </patcher>
-   <obj type="audio/out right" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_2" x="2156" y="812">
+   <obj type="audio/out left" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_1" x="2338" y="812">
       <params/>
       <attribs/>
    </obj>
    <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="Factored Gate" x="798" y="840">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="drj/audio/stereo_vol" uuid="awc8867f01982911058927f531cc6a1e565a1054" name="stereo_vol_1" x="2100" y="840">
+      <params>
+         <frac32.u.map name="volume" MidiCC="11" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="phi/spat/pan st c" uuid="69e7925b-96ef-456d-8267-2a26d8284084" name="pan_1" x="2226" y="840">
+      <params>
+         <frac32.s.map name="pan" MidiCC="12" value="0.0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="ctrl/button" uuid="ef3d13774349df85aa9bfecf30dbc91ab8488b3f" name="Gate Override" x="56" y="854">
@@ -698,6 +706,10 @@ mem=inlet_i1;]]></code.krate>
       <params>
          <frac32.s.map name="value" MidiCC="10" value="0.0"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out right" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_2" x="2338" y="882">
+      <params/>
       <attribs/>
    </obj>
    <patchobj type="patch/object" uuid="32d8f72a-3090-42d5-8e55-5874b5c16845" name="square_1" x="1148" y="910">
@@ -1061,14 +1073,6 @@ Bandwith limited</sDescription>
          <dest obj="*_2" inlet="a"/>
       </net>
       <net>
-         <source obj="Partial Reverb" outlet="L Out"/>
-         <dest obj="out_1" inlet="wave"/>
-      </net>
-      <net>
-         <source obj="Partial Reverb" outlet="R Out"/>
-         <dest obj="out_2" inlet="wave"/>
-      </net>
-      <net>
          <source obj="dial_4" outlet="out"/>
          <dest obj="*_3" inlet="b"/>
       </net>
@@ -1131,6 +1135,30 @@ Bandwith limited</sDescription>
          <source obj="min_2" outlet="out"/>
          <dest obj="Factored Gate" inlet="b"/>
       </net>
+      <net>
+         <source obj="Partial Reverb" outlet="L Out"/>
+         <dest obj="stereo_vol_1" inlet="left"/>
+      </net>
+      <net>
+         <source obj="Partial Reverb" outlet="R Out"/>
+         <dest obj="stereo_vol_1" inlet="right"/>
+      </net>
+      <net>
+         <source obj="pan_1" outlet="left"/>
+         <dest obj="out_1" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="pan_1" outlet="right"/>
+         <dest obj="out_2" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="stereo_vol_1" outlet="left"/>
+         <dest obj="pan_1" inlet="L"/>
+      </net>
+      <net>
+         <source obj="stereo_vol_1" outlet="right"/>
+         <dest obj="pan_1" inlet="R"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
@@ -1140,6 +1168,6 @@ Bandwith limited</sDescription>
       <x>0</x>
       <y>23</y>
       <width>1440</width>
-      <height>800</height>
+      <height>877</height>
    </windowPos>
 </patch-1.0>
