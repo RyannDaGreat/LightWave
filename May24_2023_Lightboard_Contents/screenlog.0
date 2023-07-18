@@ -1,0 +1,118 @@
+
+Code done running. Waiting for reload.
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+
+Adafruit CircuitPython 6.0.0-rc.2 on 2020-11-12; Teensy 4.1 with IMXRT1062DVJ6A
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> sdf
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'sdf' is not defined
+>>> 
+>>> 
+>>> sdfasdf[K[K[K[K[K[K[K3425
+3425
+>>> str(_)
+'3425'
+>>> _.ljust
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'ljust'
+>>> dir()_[K[K_)
+['__class__', 'center', 'count', 'encode', 'endswith', 'find', 'format', 'index', 'isalpha', 'isdigit', 'islower', 'isspace', 'isupper', 'join', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'upper']
+>>> sign
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'sign' is not defined
+>>> im
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'im' is not defined
+>>> 
+>>> 
+>>> 
+>>> import math
+>>> math.sign
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'module' object has no attribute 'sign'
+>>> d[K
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+HOIE
+
+Adafruit CircuitPython 6.0.0-rc.2 on 2020-11-12; Teensy 4.1 with IMXRT1062DVJ6A
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> from urp import *
+>>> math[K[K[K[Ksign(3)
+1
+>>> 
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+Traceback (most recent call last):
+  File "code.py", line 10, in <module>
+NameError: name 'input_integer' is not defined
+
+Press any key to enter the REPL. Use CTRL-D to reload.soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+Traceback (most recent call last):
+  File "code.py", line 10, in <module>
+NameError: name 'input_integer' is not defined
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+Traceback (most recent call last):
+  File "code.py", line 11, in <module>
+  File "lightboard/widgets.py", line 167, in input_integer
+  File "lightboard/widgets.py", line 167, in input_integer
+  File "lightboard/widgets.py", line 166, in input_integer
+NameError: name 'display' is not defined
+
+Press any key to enter the REPL. Use CTRL-D to reload.soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+Traceback (most recent call last):
+  File "code.py", line 11, in <module>
+  File "lightboard/widgets.py", line 167, in input_integer
+  File "lightboard/widgets.py", line 167, in input_integer
+  File "lightboard/widgets.py", line 166, in input_integer
+NameError: name 'display' is not defined
+
+Press any key to enter the REPL. Use CTRL-D to reload.

@@ -76,6 +76,16 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="dial_2" x="1652" y="266">
+      <params>
+         <frac32.u.map name="value" MidiCC="13" value="63.99999952316284"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="audio/out left" uuid="b11a3c09b2fdd575ea8212f2ce7743d5269253b1" name="out_3" x="2044" y="280">
+      <params/>
+      <attribs/>
+   </obj>
    <patchobj type="patch/object" uuid="2f292fdf-dfbd-43d0-b502-5da6318ca1b9" name="dial_4" x="924" y="308">
       <params>
          <frac32.u.map name="value" MidiCC="9" value="0.0"/>
@@ -134,6 +144,22 @@
          <code.krate><![CDATA[outlet_out= __SSAT(___SMMUL(param_amp,__SSAT(inlet_in,28)<<4)<<1,28);]]></code.krate>
       </object>
    </patchobj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="1736" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="1820" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/double" uuid="3b7c0f3e2d95da4ec849103bfaba6c1cee7b8661" name="double_1" x="1904" y="350">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/in stereo" uuid="99848ad6d90a8e615e83b2e619cfc806f28e7281" name="in_1" x="1652" y="364">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="rbrt/math/div iif" uuid="fe89a2c7-e258-4e26-9a5f-172ad2538a2a" name="Bend Range" x="140" y="378">
       <params/>
       <attribs/>
@@ -142,6 +168,22 @@
       <params>
          <int32 name="value" value="1"/>
       </params>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="1750" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_4" x="1834" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/double" uuid="3b7c0f3e2d95da4ec849103bfaba6c1cee7b8661" name="double_2" x="1918" y="420">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="audio/out right" uuid="e58a4cbbb087052c5480366e3f5d3a04aa319777" name="out_4" x="2072" y="420">
+      <params/>
       <attribs/>
    </obj>
    <obj type="disp/dial b" uuid="9ffed04e6a3052d9001eda83bae7024cb6d17037" name="Bend In Disp" x="154" y="448">
@@ -206,15 +248,6 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="stomps/flanger1" uuid="1393ca21-ebd8-4ab3-91e8-2b3dd0915e31" name="obj_1" x="1932" y="532">
-      <params>
-         <bool32.tgl name="on" value="1"/>
-         <frac32.u.map name="fdbk" value="32.5"/>
-         <frac32.u.map name="depth" value="31.0"/>
-         <frac32.s.map name="speed" value="-51.0"/>
-      </params>
-      <attribs/>
-   </obj>
    <obj type="midi/in/bend" uuid="7bd8cace52a8c26ed61d80f65e238408d5d621f4" name="Bend In" x="42" y="546">
       <params/>
       <attribs/>
@@ -264,6 +297,15 @@
    </obj>
    <obj type="math/inv" uuid="565521d3699b36d8095aa1c79b9ad0046fb133ce" name="inv_1" x="1274" y="672">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="stomps/flanger1" uuid="1393ca21-ebd8-4ab3-91e8-2b3dd0915e31" name="obj_1" x="1904" y="672">
+      <params>
+         <bool32.tgl name="on" value="1"/>
+         <frac32.u.map name="fdbk" value="32.5"/>
+         <frac32.u.map name="depth" value="31.0"/>
+         <frac32.s.map name="speed" value="-51.0"/>
+      </params>
       <attribs/>
    </obj>
    <obj type="math/gain" uuid="6b4dd3da49f98e54900f6c20031f38f4624fa364" name="gain_3" x="672" y="700">
@@ -373,7 +415,7 @@ mem=inlet_i1;]]></code.krate>
       </params>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="6b091442-1fb4-4fb7-b835-21c334e28eb7" name="Partial Reverb" x="1848" y="812">
+   <patcher type="patch/patcher" uuid="35e2901d-8df5-424f-a20c-ee6b29d5d018" name="Partial Reverb" x="1848" y="812">
       <params>
          <frac32.u.map name="verb1_1:mix" value="42.5"/>
          <frac32.u.map name="verb1_1:feed" value="30.5"/>
@@ -430,7 +472,7 @@ mem=inlet_i1;]]></code.krate>
             <params/>
             <attribs/>
          </obj>
-         <patcher type="patch/patcher" uuid="3820f265-3076-47e3-ba9f-4cc0b642c7fe" name="Reverb 2" x="294" y="336">
+         <patcher type="patch/patcher" uuid="dfc05205-d795-45d4-954e-72b36f5bc299" name="Reverb 2" x="294" y="336">
             <params>
                <bool32.tgl name="on" value="1"/>
                <frac32.u.map name="*c_1" onParent="true" value="17.5"/>
@@ -1131,14 +1173,53 @@ Bandwith limited</sDescription>
          <source obj="min_2" outlet="out"/>
          <dest obj="Factored Gate" inlet="b"/>
       </net>
+      <net>
+         <source obj="in_1" outlet="left"/>
+         <dest obj="vca_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="in_1" outlet="right"/>
+         <dest obj="vca_2" inlet="a"/>
+      </net>
+      <net>
+         <source obj="dial_2" outlet="out"/>
+         <dest obj="vca_1" inlet="v"/>
+         <dest obj="vca_2" inlet="v"/>
+         <dest obj="vca_3" inlet="v"/>
+         <dest obj="vca_4" inlet="v"/>
+      </net>
+      <net>
+         <source obj="vca_1" outlet="o"/>
+         <dest obj="vca_3" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_2" outlet="o"/>
+         <dest obj="vca_4" inlet="a"/>
+      </net>
+      <net>
+         <source obj="vca_3" outlet="o"/>
+         <dest obj="double_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="vca_4" outlet="o"/>
+         <dest obj="double_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="double_1" outlet="out"/>
+         <dest obj="out_3" inlet="wave"/>
+      </net>
+      <net>
+         <source obj="double_2" outlet="out"/>
+         <dest obj="out_4" inlet="wave"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>no</subpatchmode>
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>0</x>
-      <y>23</y>
+      <x>70</x>
+      <y>45</y>
       <width>1440</width>
       <height>800</height>
    </windowPos>

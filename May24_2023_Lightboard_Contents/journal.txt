@@ -1,0 +1,4 @@
+Development notes:
+
+Guidelines:
+	TODO: From now on, preservation of lights and buttons etc should be done by the *caller*, NOT the callee. This will avoid problems. Todo: refactor old code to do this.
